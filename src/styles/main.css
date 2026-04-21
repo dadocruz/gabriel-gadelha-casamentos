@@ -620,13 +620,19 @@ ul { list-style: none; padding: 0; margin: 0; }
   border-color: rgba(217, 185, 122, .5);
   box-shadow: 0 40px 80px -20px rgba(0,0,0,.9), 0 0 0 1px var(--gold-glow);
 }
-.short-frame iframe {
+.short-frame iframe,
+.short-frame video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   border: 0;
   display: block;
+}
+
+.short-frame video {
+  object-fit: cover;
+  background: #000;
 }
 
 .short-meta {
@@ -1013,42 +1019,50 @@ ul { list-style: none; padding: 0; margin: 0; }
 .galeria { background: var(--bg-1); }
 
 .gallery-masonry {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 180px;
-  gap: 14px;
+  column-count: 4;
+  column-gap: 14px;
 }
 .gal-item {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 14px;
   border-radius: var(--radius-m);
   overflow: hidden;
   position: relative;
   cursor: pointer;
   transition: transform .5s var(--ease-out);
   border: 1px solid rgba(217, 185, 122, .06);
+  background: transparent;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
 }
 .gal-item img {
-  width: 100%; height: 100%;
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: initial;
   transition: transform 1s var(--ease-out), filter .5s ease;
-  filter: brightness(.92) saturate(1.05);
+  filter: brightness(.94) saturate(1.03);
+  background: transparent;
 }
 .gal-item::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(10, 9, 8, .2), transparent);
+  background: linear-gradient(to top, rgba(10, 9, 8, .16), transparent 40%);
   opacity: 0;
   transition: opacity .4s ease;
 }
 .gal-item:hover {
-  transform: scale(0.99);
+  transform: translateY(-3px);
 }
 .gal-item:hover img {
-  transform: scale(1.08);
-  filter: brightness(1.05) saturate(1.15);
+  transform: scale(1.02);
+  filter: brightness(1.02) saturate(1.08);
 }
-.gal-item.tall { grid-row: span 2; }
-.gal-item.wide { grid-column: span 2; }
+.gal-item.tall { grid-row: auto; }
+.gal-item.wide { grid-column: auto; }
 
 /* =========================================================
    EMOCIONAL
@@ -1326,7 +1340,7 @@ html:not(.js-ready) .reveal {
   .pack-featured { transform: none; }
   .pack-featured:hover { transform: translateY(-8px); }
 
-  .gallery-masonry { grid-template-columns: repeat(3, 1fr); }
+  .gallery-masonry { column-count: 3; }
 
   .cta-grid { grid-template-columns: 1fr; }
   .cta-photo { max-width: 340px; margin: 0 auto; }
@@ -1370,10 +1384,9 @@ html:not(.js-ready) .reveal {
   .auth-tile figcaption { padding: 12px 14px 14px; gap: 8px; }
 
   .gallery-masonry {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 160px;
+    column-count: 2;
+    column-gap: 14px;
   }
-  .gal-item.wide { grid-column: span 2; }
 
   .sobre-img-small {
     width: 45%;
