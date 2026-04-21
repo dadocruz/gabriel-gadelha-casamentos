@@ -1,0 +1,24 @@
+# Sistema
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Node (caso use algum tooling)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build outputs (não usados hoje, mas deixo reservado)
+dist/
+.cache/
+.parcel-cache/
+
+# Local env
+.env
+.env.local
+
+# Arquivos temporários
+*.log
+*.tmp
