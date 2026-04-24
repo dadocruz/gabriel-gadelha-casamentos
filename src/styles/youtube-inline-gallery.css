@@ -1,0 +1,175 @@
+/* =========================================================
+   YouTube inline gallery — Gabriel Gadelha
+   ========================================================= */
+
+.shorts-grid.yt-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  justify-content: initial;
+  align-items: stretch;
+}
+
+.yt-showcase-card {
+  gap: 16px;
+  background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+  border: 1px solid rgba(217, 185, 122, .14);
+  border-radius: var(--radius-l);
+  padding: 14px;
+  box-shadow: var(--shadow-soft);
+}
+
+.yt-showcase-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(217, 185, 122, .35);
+}
+
+.yt-showcase-card--featured {
+  grid-column: span 2;
+}
+
+.yt-showcase-trigger,
+.yt-showcase-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: calc(var(--radius-l) - 6px);
+  overflow: hidden;
+  background: #000;
+}
+
+.yt-showcase-trigger {
+  display: block;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.yt-showcase-trigger::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(217, 185, 122, .14);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.yt-showcase-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s var(--ease-out), filter .4s ease;
+  filter: brightness(.86) saturate(1.05);
+}
+
+.yt-showcase-trigger:hover .yt-showcase-thumb {
+  transform: scale(1.04);
+  filter: brightness(.95) saturate(1.08);
+}
+
+.yt-showcase-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(10, 9, 8, .12) 0%, rgba(10, 9, 8, .2) 30%, rgba(10, 9, 8, .55) 100%),
+    radial-gradient(circle at center, rgba(217, 185, 122, .12), transparent 45%);
+}
+
+.yt-showcase-play {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 9, 8, .74);
+  border: 1px solid rgba(217, 185, 122, .35);
+  box-shadow: 0 18px 40px rgba(0,0,0,.35);
+  transition: transform .35s var(--ease-out), background .35s ease, border-color .35s ease;
+}
+
+.yt-showcase-trigger:hover .yt-showcase-play {
+  transform: translate(-50%, -50%) scale(1.06);
+  background: rgba(18, 16, 14, .86);
+  border-color: rgba(217, 185, 122, .55);
+}
+
+.yt-showcase-play svg {
+  width: 24px;
+  height: 24px;
+  margin-left: 3px;
+  fill: var(--gold-1);
+}
+
+.yt-showcase-chip {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(10, 9, 8, .72);
+  border: 1px solid rgba(217, 185, 122, .24);
+  color: var(--ink-0);
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.yt-showcase-player iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.yt-showcase-meta {
+  text-align: left;
+  padding: 0 2px 2px;
+}
+
+.yt-showcase-meta h3 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.yt-showcase-meta p {
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .shorts-grid.yt-showcase-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .yt-showcase-card--featured {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .shorts-grid.yt-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .yt-showcase-card--featured {
+    grid-column: span 1;
+  }
+
+  .yt-showcase-play {
+    width: 64px;
+    height: 64px;
+  }
+
+  .yt-showcase-meta h3 {
+    font-size: 20px;
+  }
+}
