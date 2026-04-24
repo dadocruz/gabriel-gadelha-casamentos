@@ -1,5 +1,5 @@
 /* =========================================================
-   YouTube inline gallery — Gabriel Gadelha
+   Upgrades visuais — vídeos inline, prova social e autoridade
    ========================================================= */
 
 .shorts-grid.yt-showcase-grid {
@@ -144,6 +144,178 @@
   line-height: 1.6;
 }
 
+.views-highlight {
+  position: relative;
+  margin: 0 0 28px;
+  padding: 18px 20px 18px 22px;
+  border-radius: 22px;
+  border: 1px solid rgba(217, 185, 122, .18);
+  background:
+    radial-gradient(circle at top right, rgba(217, 185, 122, .12), transparent 38%),
+    linear-gradient(180deg, rgba(26, 23, 20, .96), rgba(18, 16, 14, .92));
+  box-shadow: 0 18px 40px -24px rgba(0, 0, 0, .72);
+  overflow: hidden;
+}
+
+.views-highlight::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--gold-1), var(--gold-3));
+}
+
+.views-highlight__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--gold-1);
+  margin-bottom: 8px;
+}
+
+.views-highlight__eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold-1);
+  box-shadow: 0 0 12px rgba(217, 185, 122, .5);
+}
+
+.views-highlight__number {
+  display: block;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  line-height: .95;
+  letter-spacing: -.04em;
+  color: var(--ink-0);
+  margin-bottom: 8px;
+}
+
+.views-highlight__text {
+  margin: 0;
+  max-width: 44ch;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+
+.views-highlight__text strong {
+  color: var(--ink-0);
+  font-weight: 600;
+}
+
+.autoridade-mosaic.authority-plus-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.authority-plus-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 26px;
+  border: 1px solid rgba(217, 185, 122, .16);
+  background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+  box-shadow: var(--shadow-soft);
+  transition: transform .45s var(--ease-out), border-color .35s ease, box-shadow .45s ease;
+}
+
+.authority-plus-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(217, 185, 122, .36);
+  box-shadow: 0 28px 60px -28px rgba(0, 0, 0, .82);
+}
+
+.authority-plus-card--hero {
+  grid-column: span 5;
+}
+
+.authority-plus-card--wide {
+  grid-column: span 4;
+}
+
+.authority-plus-card--standard {
+  grid-column: span 3;
+}
+
+.authority-plus-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f0d0b 0%, #1a1714 100%);
+}
+
+.authority-plus-card--hero .authority-plus-media {
+  aspect-ratio: 16 / 12;
+}
+
+.authority-plus-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform .8s var(--ease-out), filter .4s ease;
+  filter: brightness(.92) contrast(1.04);
+}
+
+.authority-plus-card:hover .authority-plus-media img {
+  transform: scale(1.04);
+  filter: brightness(1) contrast(1.05);
+}
+
+.authority-plus-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 9, 8, .04) 32%, rgba(10, 9, 8, .68) 100%);
+}
+
+.authority-plus-caption {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.authority-plus-kicker {
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(245, 238, 227, .76);
+}
+
+.authority-plus-name {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2vw, 1.65rem);
+  color: var(--ink-0);
+  line-height: 1.05;
+  letter-spacing: -.01em;
+}
+
+.authority-plus-card--hero .authority-plus-name {
+  font-size: clamp(1.5rem, 2.3vw, 2rem);
+}
+
+.authority-plus-body {
+  padding: 18px 20px 20px;
+}
+
+.authority-plus-body p {
+  margin: 0;
+  color: var(--ink-2);
+  line-height: 1.65;
+  font-size: 14px;
+}
+
 @media (max-width: 1024px) {
   .shorts-grid.yt-showcase-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -152,6 +324,20 @@
 
   .yt-showcase-card--featured {
     grid-column: span 2;
+  }
+
+  .autoridade-mosaic.authority-plus-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .authority-plus-card--hero,
+  .authority-plus-card--wide,
+  .authority-plus-card--standard {
+    grid-column: span 1;
+  }
+
+  .authority-plus-card--hero .authority-plus-media {
+    aspect-ratio: 4 / 3;
   }
 }
 
@@ -171,5 +357,24 @@
 
   .yt-showcase-meta h3 {
     font-size: 20px;
+  }
+
+  .views-highlight {
+    padding: 16px 16px 16px 18px;
+    margin-bottom: 24px;
+  }
+
+  .views-highlight__number {
+    font-size: 2rem;
+  }
+
+  .autoridade-mosaic.authority-plus-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .authority-plus-card--hero,
+  .authority-plus-card--wide,
+  .authority-plus-card--standard {
+    grid-column: span 1;
   }
 }
