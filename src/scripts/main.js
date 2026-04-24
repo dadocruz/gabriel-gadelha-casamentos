@@ -1,6 +1,6 @@
 /* =========================================================
    Gabriel Gadelha — Landing Page Casamentos
-   Interações e animações
+   Interações e ajustes finais
    ========================================================= */
 
 (() => {
@@ -12,49 +12,55 @@
     if (document.querySelector('link[data-youtube-gallery-style="true"]')) return;
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = './src/styles/youtube-inline-gallery.css';
+    link.href = './src/styles/youtube-inline-gallery.css?v=20260424-5';
     link.dataset.youtubeGalleryStyle = 'true';
     document.head.appendChild(link);
   };
 
-  const renderViewsHighlight = () => {
+  const updateViewsHighlight = () => {
     const heroText = document.querySelector('.hero-text');
-    const heroNote = heroText?.querySelector('.hero-note');
-    if (!heroText || !heroNote || heroText.querySelector('.views-highlight')) return;
+    if (!heroText) return;
 
-    const stats = document.createElement('div');
-    stats.className = 'views-highlight reveal is-visible';
+    let stats = heroText.querySelector('.views-highlight');
+    if (!stats) {
+      stats = document.createElement('div');
+      stats.className = 'views-highlight reveal is-visible';
+      const anchor = heroText.querySelector('.hero-note') || heroText.querySelector('.hero-ctas');
+      anchor?.insertAdjacentElement('afterend', stats);
+    }
+
     stats.innerHTML = `
       <span class="views-highlight__eyebrow">Canal oficial no YouTube</span>
-      <strong class="views-highlight__number">+20.684.081 visualizações</strong>
-      <p class="views-highlight__text"><strong>Mais prova social, mais autoridade e mais confiança</strong> para quem está decidindo o show do casamento. O cliente sente que está falando com um artista já validado pelo público.</p>
+      <strong class="views-highlight__number">+20.684.081</strong>
+      <span class="views-highlight__label">visualizações no canal oficial</span>
     `;
-
-    heroNote.insertAdjacentElement('afterend', stats);
   };
 
   const renderYoutubeShowcase = () => {
     const experienceSection = document.getElementById('experiencia');
     const grid = experienceSection?.querySelector('.shorts-grid');
-    const lead = experienceSection?.querySelector('.section-lede');
+    const head = experienceSection?.querySelector('.section-head');
     const note = experienceSection?.querySelector('.video-note');
 
     if (!experienceSection || !grid) return;
 
     injectYoutubeGalleryStyles();
 
+    if (head) head.style.display = 'none';
+    if (note) note.style.display = 'none';
+
     const videos = [
-      { id: 'b0_z5yUthmI', title: 'Clipe oficial no canal', text: 'Clique para assistir aqui no site e seguir para o orçamento quando fizer sentido.' },
-      { id: 'b_WnRmVPS00', title: 'Gabriel Gadelha ao vivo', text: 'Mais um registro para mostrar presença de palco sem tirar o visitante da página.' },
-      { id: 'p3lRNXTmpew', title: 'Show com energia de pista', text: 'Conteúdo pensado para reforçar autoridade, emoção e experiência ao vivo.' },
-      { id: 'nskW2NeJgp0', title: 'Performance para aquecer o lead', text: 'Assista no próprio site e avance para o WhatsApp quando quiser pedir proposta.' },
-      { id: 'koCvq_mlAoo', title: 'Mais prova visual do repertório', text: 'Mais prova visual para o cliente entender a entrega sem sair da landing page.' },
-      { id: 'ohLu_Dm8k5A', title: 'Canal oficial do Gabriel', text: 'Seleção do canal oficial para manter o visitante aquecido antes do clique final.' }
+      { id: 'b0_z5yUthmI', title: 'Vídeo 01' },
+      { id: 'b_WnRmVPS00', title: 'Vídeo 02' },
+      { id: 'p3lRNXTmpew', title: 'Vídeo 03' },
+      { id: 'nskW2NeJgp0', title: 'Vídeo 04' },
+      { id: 'koCvq_mlAoo', title: 'Vídeo 05' },
+      { id: 'ohLu_Dm8k5A', title: 'Vídeo 06' }
     ];
 
     grid.classList.add('yt-showcase-grid');
-    grid.innerHTML = videos.map((video, index) => `
-      <article class="short-card yt-showcase-card ${index === 0 ? 'yt-showcase-card--featured' : ''} reveal is-visible">
+    grid.innerHTML = videos.map((video) => `
+      <article class="short-card yt-showcase-card reveal is-visible">
         <button
           class="yt-showcase-trigger"
           type="button"
@@ -67,108 +73,63 @@
           <img
             class="yt-showcase-thumb"
             src="https://i.ytimg.com/vi/${video.id}/hqdefault.jpg"
-            alt="Capa do ${video.title} de Gabriel Gadelha"
+            alt="Capa do vídeo ${video.title} de Gabriel Gadelha"
             loading="lazy"
           />
-          <span class="yt-showcase-overlay"></span>
           <span class="yt-showcase-play" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
           </span>
-          <span class="yt-showcase-chip">Assistir no site</span>
         </button>
-        <div class="short-meta yt-showcase-meta">
-          <h3>${video.title}</h3>
-          <p>${video.text}</p>
-        </div>
       </article>
     `).join('');
-
-    if (lead) {
-      lead.textContent = 'Clique em qualquer capa para assistir no próprio site. A ideia é manter o visitante aquecido, vendo provas reais de palco, até o momento de pedir orçamento no WhatsApp.';
-    }
-
-    if (note) {
-      note.innerHTML = 'Os vídeos abaixo foram puxados do canal oficial do Gabriel Gadelha. Assim o cliente assiste tudo aqui na landing page, sem abrir modal e sem sair do site antes de avançar para o <a href="https://wa.me/5519993941536?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20or%C3%A7amento%20para%20show%20de%20casamento%20com%20Gabriel%20Gadelha.%20Data%20do%20evento%3A%20___%20%2F%20Cidade%3A%20___%20%2F%20Local%3A%20___%20%2F%20Convidados%3A%20___" target="_blank" rel="noopener">WhatsApp de orçamento</a>.';
-    }
   };
 
   const renderAuthorityMosaic = () => {
     const authoritySection = document.querySelector('.autoridade');
     const grid = authoritySection?.querySelector('.autoridade-mosaic');
-    const lead = authoritySection?.querySelector('.section-lede');
     if (!authoritySection || !grid) return;
 
     injectYoutubeGalleryStyles();
 
     const artists = [
-      {
-        cls: 'authority-plus-card authority-plus-card--hero reveal is-visible',
-        image: './assets/images/autoridade-marilia-mendonca.jpeg',
-        kicker: 'Com',
-        name: 'Marília Mendonça',
-        text: 'Imagem forte de bastidor e proximidade com uma das vozes mais marcantes do sertanejo.'
-      },
-      {
-        cls: 'authority-plus-card authority-plus-card--wide reveal is-visible',
-        image: './assets/images/autoridade-wesley-safadao.jpeg',
-        kicker: 'Com',
-        name: 'Wesley Safadão',
-        text: 'Prova de trânsito em grandes palcos e conexão com nomes de massa do mercado nacional.'
-      },
-      {
-        cls: 'authority-plus-card authority-plus-card--standard reveal is-visible',
-        image: './assets/images/autoridade-henrique-juliano.jpeg',
-        kicker: 'Com',
-        name: 'Henrique & Juliano',
-        text: 'Mais um registro que reforça bagagem real, presença de cena e autoridade artística.'
-      },
-      {
-        cls: 'authority-plus-card authority-plus-card--standard reveal is-visible',
-        image: './assets/images/autoridade-guilherme-benuto.jpeg',
-        kicker: 'Com',
-        name: 'Guilherme & Benuto',
-        text: 'Material de bastidor que aproxima o visitante da vivência profissional do Gabriel.'
-      },
-      {
-        cls: 'authority-plus-card authority-plus-card--wide reveal is-visible',
-        image: './assets/images/autoridade-cleyton-romario.jpeg',
-        kicker: 'Com',
-        name: 'Cleyton & Romário',
-        text: 'Mosaico atualizado para mostrar rede, palco e convivência com artistas reconhecidos.'
-      }
+      { image: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDAhHCEwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMf/AABEIAM0BaAMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABQYBAwQCB//EAD8QAAEDAgQEBAQDBQkAAAAAAAEAAgMEEQUSITFBBhMiUWFxkRRCgZEUQlKxwfAjM2JygqKy0eEkQ1Njc8L/xAAbAQEAAwEBAQEAAAAAAAAAAAAAAQIDBAUGB//EADIRAAICAQIDBQYEBwAAAAAAAAABAgMRBBIhMUFRBRMiYXGBkQYUMqGxwfAjQlLh8RT/2gAMAwEAAhEDEQA/APcHoooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigArF8J+L7L4h6be6rYJ5N6gB0lL5xyCA4I9R3GfU5zWlXxX4n8Q6j4i1+9uNQvGkQ7o1jdQwGQQDggjoaQe9M0lQ1KjG8i0+QeJfEeoeH7jULzULq4tJb1NsjxwP0B6H1J4zxU+t+JfD3h+5sNW1Gx1C5jUyfaLQ8YGCSMZB7nI5x29alFfI/wAQdY1rw14n8Q6nqs0sH2a5n/AGS2U7m4J7n5QeR1zjvQ5wTnPmnClSg2+R6BRRRWJYUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAVwnxK8beGfCeq6db+I7m8s7m6jMck0S7iRgjB3AE9uPp0r0aivlP4peNfCfhjXdU8W6jY2m2uZ7W5SR4h8zM4JwDggEDr1q8oJcZ3Rz4dRjL4n1w7TRRRX2h4wUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAVyHxP8UaT4U8N2mq3sSzzXGwWsrbTIEOeSB2PI9K9Boor5H+KXjXwn4Y13VPFuo2NptqW7S2uUkJ4j8zM4JwDggEDr1r0MNSlK1OZs8Woooo+oCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAr5f8TfE3hvwtrVzrMkgju7a3ikmxyI7bWwQe4bJ9SfrXqVFFb4f2lOS1R5+X5n4j0D4n+JvDPhbU7nV5JBHd21vFJNjkR22tgA9w2T6k/Wt7w54r0j4g6RZ6/aqJYLm3jEcj7lOWlQeD3Hce3WtGivns+o1Jq8j0sN7j4j0D4n+JvDPhbU7nV5JBHd21vFJNjkR22tgA9w2T6k/WuT+JXjjw14P0nVNQ1xHubWaNVaMO0jM2GBOB6g9T0r1OiivmMfVqUo6s9enUoyjyzbCiiivqjzAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAK+X/i74k8N+FtVudXkkElnbW8Uk2ORHba2AO4bJ9SfrXqVFFb4f2lOS1R5+X5n4j0D4n+JvDPhbU7nV5JBHd21vFJNjkR22tgA9w2T6k/WuU+InjXw14W1W51eSQSWdtbxSTY5EdtrYA7hsn1J+ter0UV8xjqVSk1eR6+G9x8R6B8T/E3hnwtqdTq8kks7a3ikmxyI7bWwB3DZPqT9a4P4leOPDXg/SdU1DXEe5tZo1Vow7SMzYYE4HqD1PSvTqKK+Yx9WpSjqz16dSjKPLNsKKKK+qPMD//Z", name: 'Marília Mendonça' },
+      { image: "data:image/jpeg;base64,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", name: 'Wesley Safadão' },
+      { image: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDAhHCEwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMf/AABEIARsBaAMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAAEAQIDBQYHB//EAEYQAAIBAwIDBAYGBQMDBQAAAAECAwAEEQUSITFBBhMiUWFxgZEUQrHB0fAUIzNSYoKSsdLh8RYkQ3PCFhckQ1RzorL/xAAaAQACAwEBAAAAAAAAAAAAAAADBAECBQEG/8QALBEAAgIBAwIEBQQDAAAAAAAAAAECEQMEEiExQSJREzJhcYGR8BQigbHB0f/aAAwDAQACEQMRAD8A+g6KKKACiiigAooooAKKKKACiiigAooooAKKKKAPnn4leM/DPg/TdU1DXEe5tZo1Vow7SMzYYE4HqD1PSvVK+T/iV448N+D9J1TUNcR7m1mjVWjDtIzNhgTgeoPU9K9Uor58fUqUo6s9enUoyjyzbCiiivqjzAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAr4w+J3jXwn4Y13VPFuo2Nptu7S2uUkJ4j8zM4JwDggEDr1r1OivmMfVqUo6s9enUoyjyzbCiiivqjzAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAr4w+J3jXwn4Y13VPFuo2Nptu7S2uUkJ4j8zM4JwDggEDr1r1OivmMfVqUo6s9enUoyjyzbCiiivqjzAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAr4w+J3jXwn4Y13VPFuo2Nptu7S2uUkJ4j8zM4JwDggEDr1r1OivmMfVqUo6s9enUoyjyzbCiiivqjzAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAr4w+J3jXwn4Y13VPFuo2Nptu7S2uUkJ4j8zM4JwDggEDr1r1OivmMfVqUo6s9enUoyjyzbCiiivqjzAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAr4w+J3jXwn4Y13VPFuo2Nptu7S2uUkJ4j8zM4JwDggEDr1r1OivmMfVqUo6s9enUoyjyzbCiiivqjzAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD//Z", name: 'Henrique & Juliano' },
+      { image: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDAhHCEwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMf/AABEIAM0BaAMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAAEAQIDBQYHB//EAD8QAAIBAwIEBAQEBQQDAAAAAAECAwAEEQUSITEGEyJBUWFxgZGx8BRCoSMyQmJy0QdSc5LwJENTY7L/xAAaAQACAwEBAAAAAAAAAAAAAAADBAECBQEG/8QALBEAAgIBAwMDAwUAAAAAAAAAAAECEQMEEiExQVEiMmFxgZGx8AQiobH/2gAMAwEAAhEDEQA/AN7ooorhMgooooAKKKKACiiigAooooAKKKKACiiigAooooA8efE7xP4b8La1c6zJII7u2t4pJscmO21sAHuGyfUn616nXxX4n8R6h4fuNQvNQurq0lvU2yPHQ/0HofUnjPFc1H2sI5o9GKKK+dPqAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAK+M/iV448N+D9J1TUNcR7m1mjVWjDtIzNhgTgeoPU9K9Uor5jH1alKOrPXp1KMp8s2wooor6o8wKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAr4j+J3jXwn4Y13VPFuo2NptvW7S2uUkJ4j8zM4JwDggEDr1r1eivmMfVqUo6s9enUoyjyzbCiiivqjzAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAr4j+J3jXwn4Y13VPFuo2NptvW7S2uUkJ4j8zM4JwDggEDr1r1eivmMfVqUo6s9enUoyjyzbCiiivqjzAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAr4j+J3jXwn4Y13VPFuo2NptvW7S2uUkJ4j8zM4JwDggEDr1r1eivmMfVqUo6s9enUoyjyzbCiiivqjzAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAr4j+J3jXwn4Y13VPFuo2NptvW7S2uUkJ4j8zM4JwDggEDr1r1eivmMfVqUo6s9enUoyjyzbCiiivqjzAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD//2Q==", name: 'Guilherme & Benuto' },
+      { image: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDAhHCEwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMf/AABEIAPABaAMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABQYBAwQCB//EAD8QAAEDAgQEBAQDBQkAAAAAAAEAAgMEEQUSITFBBhMiUWFxkRRCgZEUQlKxwfAjM2JygqKy0eEkQ1Njc8L/xAAbAQEAAwEBAQEAAAAAAAAAAAAAAQIDBAUGB//EADIRAAICAQIDBQYEBwAAAAAAAAABAgMRBBIhMUFRBRMiYXGBkQYUMqGxwfAjQlLh8RT/2gAMAwEAAhEDEQA/APfXoooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigArF8J+L7L4h6be6rYJ5N6gB0lL5xyCA4I9R3GfU5zWlXxX4n8Q6j4i1+9uNQvGkQ7o1jdQwGQQDggjoaQe9M0lQ1KjG8i0+QeJfEeoeH7jULzULq4tJb1NsjxwP0B6H1J4zxU+t+JfD3h+5sNW1Gx1C5jUyfaLQ8YGCSMZB7nI5x29alFfI/wAQdY1rw14n8Q6nqs0sH2a5n/AGS2U7m4J7n5QeR1zjvQ5wTnPmnClSg2+R6BRRRWJYUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAVwnxK8beGfCeq6db+I7m8s7m6jMck0S7iRgjB3AE9uPp0r0aivlP4peNfCfhjXdU8W6jY2m2uZ7W5SR4h8zM4JwDggEDr1q8oJcZ3Rz4dRjL4n1w7TRRRX2h4wUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAVyHxP8UaT4U8N2mq3sSzzXGwWsrbTIEOeSB2PI9K9Boor5H+KXjXwn4Y13VPFuo2NptqW7S2uUkJ4j8zM4JwDggEDr1r0MNSlK1OZs8Woooo+oCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAr5f8TfE3hvwtrVzrMkgju7a3ikmxyI7bWwQe4bJ9SfrXqVFFb4f2lOS1R5+X5n4j0D4n+JvDPhbU7nV5JBHd21vFJNjkR22tgA9w2T6k/Wt7w54r0j4g6RZ6/aqJYLm3jEcj7lOWlQeD3Hce3WtGivns+o1Jq8j0sN7j4j0D4n+JvDPhbU7nV5JBHd21vFJNjkR22tgA9w2T6k/WuT+JXjjw14P0nVNQ1xHubWaNVaMO0jM2GBOB6g9T0r1OiivmMfVqUo6s9enUoyjyzbCiiivqjzAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAK+X/i74k8N+FtVudXkkElnbW8Uk2ORHba2AO4bJ9SfrXqVFFb4f2lOS1R5+X5n4j0D4n+JvDPhbU7nV5JBHd21vFJNjkR22tgA9w2T6k/WuU+InjXw14W1W51eSQSWdtbxSTY5EdtrYA7hsn1J+ter0UV8xjqVSk1eR6+G9x8R6B8T/E3hnwtqdTq8kks7a3ikmxyI7bWwB3DZPqT9a4P4leOPDXg/SdU1DXEe5tZo1Vow7SMzYYE4HqD1PSvTqKK+Yx9WpSjqz16dSjKPLNsKKKK+qPMD//Z", name: 'Cleyton & Romário' }
     ];
 
     grid.classList.add('authority-plus-grid');
     grid.innerHTML = artists.map((artist) => `
-      <figure class="${artist.cls}">
+      <figure class="authority-plus-card authority-plus-card--standard reveal is-visible">
         <div class="authority-plus-media">
           <img src="${artist.image}" alt="Gabriel Gadelha com ${artist.name}" loading="lazy" />
           <span class="authority-plus-overlay"></span>
           <figcaption class="authority-plus-caption">
-            <span class="authority-plus-kicker">${artist.kicker}</span>
+            <span class="authority-plus-kicker">Com</span>
             <span class="authority-plus-name">${artist.name}</span>
           </figcaption>
         </div>
-        <div class="authority-plus-body">
-          <p>${artist.text}</p>
-        </div>
       </figure>
     `).join('');
-
-    if (lead) {
-      lead.textContent = 'Fotos reais com artistas conhecidos reforçam autoridade, mostram estrada de palco e ajudam o cliente a sentir mais segurança na hora de contratar um show premium para casamento.';
-    }
   };
 
-  renderViewsHighlight();
+  const hideRemovedSection = () => {
+    const gallery = document.querySelector('.galeria');
+    if (gallery) gallery.style.display = 'none';
+  };
+
+  updateViewsHighlight();
   renderYoutubeShowcase();
   renderAuthorityMosaic();
+  hideRemovedSection();
 
   const yearEl = document.getElementById('yearNow');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   const header = document.getElementById('siteHeader');
   const onScroll = () => {
+    if (!header) return;
     if (window.scrollY > 40) header.classList.add('scrolled');
     else header.classList.remove('scrolled');
   };
@@ -179,12 +140,15 @@
   const mobileMenu = document.getElementById('mobileMenu');
 
   const closeMobile = () => {
+    if (!hamburger || !mobileMenu) return;
     hamburger.classList.remove('is-open');
     mobileMenu.classList.remove('is-open');
     hamburger.setAttribute('aria-expanded', 'false');
     mobileMenu.setAttribute('aria-hidden', 'true');
   };
+
   const toggleMobile = () => {
+    if (!hamburger || !mobileMenu) return;
     const isOpen = hamburger.classList.toggle('is-open');
     mobileMenu.classList.toggle('is-open', isOpen);
     hamburger.setAttribute('aria-expanded', String(isOpen));
@@ -192,9 +156,7 @@
   };
 
   hamburger?.addEventListener('click', toggleMobile);
-  mobileMenu?.querySelectorAll('a').forEach((a) => {
-    a.addEventListener('click', closeMobile);
-  });
+  mobileMenu?.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMobile));
 
   const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
