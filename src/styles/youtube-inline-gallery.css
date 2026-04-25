@@ -1,12 +1,6 @@
-
 /* =========================================================
-   Ajustes finais — hero short, views, vídeos e autoridade
+   Ajuste final — vídeos, hero com áudio e autoridade maior no desktop
    ========================================================= */
-
-.hero-photo-wrap {
-  max-width: 420px;
-  aspect-ratio: 9 / 16;
-}
 
 .hero-video {
   position: relative;
@@ -15,25 +9,47 @@
   height: 100%;
   border-radius: var(--radius-l);
   overflow: hidden;
-  box-shadow: var(--shadow-strong);
   background: #000;
+  box-shadow: var(--shadow-strong);
 }
 
 .hero-video iframe {
   width: 100%;
   height: 100%;
   border: 0;
+  display: block;
+}
+
+.hero-sound-btn {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  z-index: 3;
+  border: 1px solid rgba(217, 185, 122, .28);
+  background: rgba(10, 9, 8, .72);
+  color: var(--ink-0);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: .06em;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+
+.hero-sound-btn.is-active {
+  background: rgba(217, 185, 122, .16);
+  border-color: rgba(217, 185, 122, .45);
 }
 
 .views-highlight {
   margin: 22px 0 0;
-  padding: 24px 24px 22px;
-  text-align: left;
+  padding: 26px 26px 24px;
+  text-align: center;
   border-radius: 26px;
   border: 1px solid rgba(217, 185, 122, .22);
   background:
-    radial-gradient(circle at top right, rgba(217, 185, 122, .12), transparent 36%),
-    linear-gradient(180deg, rgba(26, 23, 20, .98), rgba(18, 16, 14, .94));
+    radial-gradient(circle at top center, rgba(217, 185, 122, .16), transparent 42%),
+    linear-gradient(180deg, rgba(26, 23, 20, .96), rgba(18, 16, 14, .92));
   box-shadow: 0 20px 40px -22px rgba(0, 0, 0, .78);
 }
 
@@ -49,7 +65,7 @@
 .views-highlight__number {
   display: block;
   font-family: var(--serif);
-  font-size: clamp(2.9rem, 7vw, 5.6rem);
+  font-size: clamp(2.9rem, 7vw, 5.8rem);
   line-height: .9;
   letter-spacing: -.05em;
   color: var(--ink-0);
@@ -78,7 +94,9 @@
   align-items: stretch;
 }
 
-.yt-showcase-card {
+.yt-showcase-card,
+.yt-showcase-card--featured {
+  grid-column: span 1 !important;
   background: transparent;
   border: 0;
   border-radius: 0;
@@ -102,18 +120,26 @@
   border: 1px solid rgba(217, 185, 122, .18);
 }
 
+.yt-showcase-trigger::after,
+.yt-showcase-overlay,
+.yt-showcase-chip,
+.yt-showcase-meta,
+.authority-plus-body {
+  display: none !important;
+}
+
 .yt-showcase-thumb {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: brightness(.9) saturate(1.04);
+  filter: brightness(.88) saturate(1.04);
   transition: transform .4s ease, filter .3s ease;
 }
 
 .yt-showcase-trigger:hover .yt-showcase-thumb {
   transform: scale(1.03);
-  filter: brightness(.98) saturate(1.08);
+  filter: brightness(.97) saturate(1.08);
 }
 
 .yt-showcase-play {
@@ -146,48 +172,38 @@
   border: 0;
 }
 
-.yt-showcase-meta,
-.yt-showcase-chip,
-.yt-showcase-overlay,
-.yt-showcase-trigger::after {
-  display: none !important;
-}
-
-.sobre-img-small,
-.sobre-signature {
-  display: none !important;
-}
-
-.sobre-img {
-  aspect-ratio: auto;
-  max-width: 620px;
-  width: 100%;
-}
-
-.sobre-img-main {
+.sobre-img-main.sobre-img-main--single {
   position: relative;
-  inset: auto;
-  border-radius: var(--radius-l);
   overflow: hidden;
-  box-shadow: var(--shadow-strong);
+  border-radius: 34px;
+  min-height: 640px;
 }
 
-.sobre-img-main img {
+.sobre-img-main.sobre-img-main--single img {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
   object-fit: cover;
+  display: block;
+}
+
+.sobre-img.sobre-img--single .sobre-signature,
+.sobre-img.sobre-img--single .sobre-img-small {
+  display: none !important;
 }
 
 .autoridade-mosaic.authority-plus-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 18px;
+  gap: 22px;
 }
 
-.authority-plus-card {
+.authority-plus-card,
+.authority-plus-card--hero,
+.authority-plus-card--wide,
+.authority-plus-card--standard {
+  grid-column: span 1 !important;
   overflow: hidden;
-  border-radius: 24px;
+  border-radius: 28px;
   border: 1px solid rgba(217, 185, 122, .16);
   background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
   box-shadow: var(--shadow-soft);
@@ -211,17 +227,17 @@
 .authority-plus-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(10, 9, 8, .06) 30%, rgba(10, 9, 8, .72) 100%);
+  background: linear-gradient(180deg, rgba(10, 9, 8, .08) 30%, rgba(10, 9, 8, .76) 100%);
 }
 
 .authority-plus-caption {
   position: absolute;
-  left: 14px;
-  right: 14px;
-  bottom: 14px;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
 }
 
 .authority-plus-kicker {
@@ -234,36 +250,49 @@
 .authority-plus-name {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 1.55rem;
+  font-size: 1.75rem;
   line-height: 1.05;
   color: var(--ink-0);
 }
 
-.authority-plus-body {
-  display: none !important;
+@media (min-width: 1201px) {
+  .autoridade-mosaic.authority-plus-grid.authority-desktop-large {
+    grid-template-columns: repeat(5, minmax(180px, 1fr));
+    gap: 34px;
+  }
+
+  .authority-desktop-large .authority-plus-card {
+    border-radius: 32px;
+  }
+
+  .authority-desktop-large .authority-plus-media {
+    aspect-ratio: 3 / 4.8;
+  }
+
+  .authority-desktop-large .authority-plus-name {
+    font-size: 2.05rem;
+  }
 }
 
 @media (max-width: 1200px) {
-  .shorts-grid.yt-showcase-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
   .autoridade-mosaic.authority-plus-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 1024px) {
-  .hero-photo-wrap {
-    max-width: 340px;
+  .sobre-img-main.sobre-img-main--single {
+    min-height: 460px;
   }
 }
 
 @media (max-width: 800px) {
-  .shorts-grid.yt-showcase-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  .shorts-grid.yt-showcase-grid,
   .autoridade-mosaic.authority-plus-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .sobre-img-main.sobre-img-main--single {
+    min-height: 380px;
   }
 }
 
@@ -279,10 +308,12 @@
   }
 
   .authority-plus-name {
-    font-size: 1.35rem;
+    font-size: 1.4rem;
   }
 
-  .views-highlight {
-    text-align: center;
+  .hero-sound-btn {
+    right: 12px;
+    top: 12px;
+    padding: 8px 12px;
   }
 }
