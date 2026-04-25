@@ -257,8 +257,8 @@
 
 @media (min-width: 1201px) {
   .autoridade-mosaic.authority-plus-grid.authority-desktop-large {
-    grid-template-columns: repeat(5, minmax(180px, 1fr));
-    gap: 34px;
+    grid-template-columns: repeat(5, minmax(195px, 1fr));
+    gap: 30px;
   }
 
   .authority-desktop-large .authority-plus-card {
@@ -266,11 +266,11 @@
   }
 
   .authority-desktop-large .authority-plus-media {
-    aspect-ratio: 3 / 4.8;
+    aspect-ratio: 3 / 4.95;
   }
 
   .authority-desktop-large .authority-plus-name {
-    font-size: 2.05rem;
+    font-size: 2.12rem;
   }
 }
 
