@@ -1,4 +1,3 @@
-
 (() => {
   'use strict';
 
@@ -63,13 +62,42 @@
       const target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
-      const top =
-        target.getBoundingClientRect().top +
-        window.scrollY -
-        (window.innerWidth > 1024 ? 80 : 70);
+      const top = target.getBoundingClientRect().top + window.scrollY - (window.innerWidth > 1024 ? 80 : 70);
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
+
+  const heroWrap = document.querySelector('.hero-photo-wrap');
+  const heroFrame = document.querySelector('.hero-video iframe');
+  let heroSoundOn = false;
+  const heroVideoId = '3U183bGOk74';
+
+  const setHeroVideoSrc = (soundOn) => {
+    if (!heroFrame) return;
+    const mute = soundOn ? 0 : 1;
+    heroFrame.src = `https://www.youtube-nocookie.com/embed/${heroVideoId}?autoplay=1&mute=${mute}&loop=1&playlist=${heroVideoId}&controls=0&modestbranding=1&playsinline=1&rel=0`;
+  };
+
+  if (heroWrap && heroFrame) {
+    heroFrame.id = 'heroShortFrame';
+
+    let heroSoundBtn = document.getElementById('heroSoundBtn');
+    if (!heroSoundBtn) {
+      heroSoundBtn = document.createElement('button');
+      heroSoundBtn.type = 'button';
+      heroSoundBtn.id = 'heroSoundBtn';
+      heroSoundBtn.className = 'hero-sound-btn';
+      heroSoundBtn.textContent = 'Ativar áudio';
+      heroWrap.appendChild(heroSoundBtn);
+    }
+
+    heroSoundBtn.addEventListener('click', () => {
+      heroSoundOn = !heroSoundOn;
+      setHeroVideoSrc(heroSoundOn);
+      heroSoundBtn.classList.toggle('is-active', heroSoundOn);
+      heroSoundBtn.textContent = heroSoundOn ? 'Desativar áudio' : 'Ativar áudio';
+    });
+  }
 
   document.addEventListener('click', (event) => {
     const trigger = event.target.closest('.yt-showcase-trigger');
@@ -91,4 +119,9 @@
     `;
     trigger.replaceWith(player);
   });
+
+  const authorityGrid = document.querySelector('.autoridade-mosaic');
+  if (authorityGrid && window.innerWidth > 1024) {
+    authorityGrid.classList.add('authority-desktop-large');
+  }
 })();
