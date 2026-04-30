@@ -67,10 +67,15 @@
     });
   });
 
+  const viewsNumber = document.querySelector('.views-highlight__number');
+  const viewsLabel = document.querySelector('.views-highlight__label');
+  if (viewsNumber) viewsNumber.textContent = '+ de 20 milhões';
+  if (viewsLabel) viewsLabel.textContent = 'de visualizações no YouTube';
+
   const heroWrap = document.querySelector('.hero-photo-wrap');
-  const heroFrame = document.querySelector('.hero-video iframe');
-  let heroSoundOn = false;
+  const heroVideo = document.querySelector('.hero-video');
   const heroVideoId = '3U183bGOk74';
+  let heroSoundOn = false;
 
   const buildHeroSrc = (soundOn) => {
     const mute = soundOn ? 0 : 1;
@@ -78,22 +83,62 @@
     return `https://www.youtube-nocookie.com/embed/${heroVideoId}?autoplay=1&mute=${mute}&loop=1&playlist=${heroVideoId}&controls=${controls}&modestbranding=1&playsinline=1&rel=0`;
   };
 
-  const setHeroVideoSrc = (soundOn) => {
-    if (!heroFrame) return;
-    heroFrame.src = buildHeroSrc(soundOn);
+  const createHeroPlayer = (soundOn) => {
+    if (!heroVideo) return;
+    heroVideo.innerHTML = `
+      <iframe
+        id="heroShortFrame"
+        src="${buildHeroSrc(soundOn)}"
+        title="Gabriel Gadelha short"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    `;
+    heroVideo.dataset.started = '1';
+    heroVideo.dataset.sound = soundOn ? 'on' : 'off';
   };
 
-  const applyHeroSoundState = (soundOn, btn) => {
-    heroSoundOn = soundOn;
-    setHeroVideoSrc(soundOn);
-    if (btn) {
-      btn.classList.toggle('is-active', soundOn);
-      btn.textContent = soundOn ? 'Desativar áudio' : 'Ativar áudio';
+  const createHeroPoster = () => {
+    if (!heroVideo) return;
+    heroVideo.innerHTML = `
+      <button class="hero-poster-launch" type="button" aria-label="Assistir vídeo com áudio">
+        <img class="hero-poster-image" src="https://i.ytimg.com/vi/${heroVideoId}/maxresdefault.jpg" alt="Gabriel Gadelha em show ao vivo" loading="eager" />
+        <span class="hero-poster-shade"></span>
+        <span class="hero-poster-play" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+        </span>
+        <span class="hero-poster-cta">Ouvir com áudio</span>
+      </button>
+    `;
+
+    const img = heroVideo.querySelector('.hero-poster-image');
+    if (img) {
+      img.addEventListener('error', () => {
+        if (img.src.includes('maxresdefault')) {
+          img.src = `https://i.ytimg.com/vi/${heroVideoId}/sddefault.jpg`;
+        } else if (img.src.includes('sddefault')) {
+          img.src = `https://i.ytimg.com/vi/${heroVideoId}/hqdefault.jpg`;
+        }
+      });
     }
+
+    const launchBtn = heroVideo.querySelector('.hero-poster-launch');
+    launchBtn?.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      heroSoundOn = true;
+      createHeroPlayer(true);
+      const heroSoundBtn = document.getElementById('heroSoundBtn');
+      if (heroSoundBtn) {
+        heroSoundBtn.classList.add('is-active');
+        heroSoundBtn.textContent = 'Desativar áudio';
+      }
+    });
   };
 
-  if (heroWrap && heroFrame) {
-    heroFrame.id = 'heroShortFrame';
+  if (heroWrap && heroVideo) {
+    createHeroPoster();
 
     let heroSoundBtn = document.getElementById('heroSoundBtn');
     if (!heroSoundBtn) {
@@ -101,14 +146,17 @@
       heroSoundBtn.type = 'button';
       heroSoundBtn.id = 'heroSoundBtn';
       heroSoundBtn.className = 'hero-sound-btn';
-      heroSoundBtn.textContent = 'Ativar áudio';
+      heroSoundBtn.textContent = 'Ouvir com áudio';
       heroWrap.appendChild(heroSoundBtn);
     }
 
     heroSoundBtn.addEventListener('click', (event) => {
       event.preventDefault();
       event.stopPropagation();
-      applyHeroSoundState(!heroSoundOn, heroSoundBtn);
+      heroSoundOn = !heroSoundOn;
+      createHeroPlayer(heroSoundOn);
+      heroSoundBtn.classList.toggle('is-active', heroSoundOn);
+      heroSoundBtn.textContent = heroSoundOn ? 'Desativar áudio' : 'Ouvir com áudio';
     });
   }
 
