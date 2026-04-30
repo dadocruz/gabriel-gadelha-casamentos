@@ -20,6 +20,75 @@
   display: block;
 }
 
+.hero-poster-launch {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  display: block;
+  background: #000;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.hero-poster-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.06) contrast(1.02);
+}
+
+.hero-poster-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.06) 8%, rgba(0,0,0,.38) 100%);
+}
+
+.hero-poster-play {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -58%);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 9, 8, .58);
+  border: 1px solid rgba(217, 185, 122, .38);
+  box-shadow: 0 18px 40px rgba(0,0,0,.35);
+  backdrop-filter: blur(8px);
+}
+
+.hero-poster-play svg {
+  width: 32px;
+  height: 32px;
+  margin-left: 5px;
+  fill: var(--gold-1);
+}
+
+.hero-poster-cta {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  min-width: 220px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(217, 185, 122, .36);
+  background: rgba(10, 9, 8, .68);
+  color: var(--ink-0);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+
 .hero-sound-btn {
   position: absolute;
   right: 18px;
@@ -43,7 +112,7 @@
 
 .views-highlight {
   margin: 22px 0 0;
-  padding: 26px 26px 24px;
+  padding: 28px 28px 24px;
   text-align: center;
   border-radius: 26px;
   border: 1px solid rgba(217, 185, 122, .22);
@@ -55,7 +124,7 @@
 
 .views-highlight__eyebrow {
   display: block;
-  margin: 0 0 8px;
+  margin: 0 0 10px;
   font-size: 11px;
   letter-spacing: .28em;
   text-transform: uppercase;
@@ -65,9 +134,9 @@
 .views-highlight__number {
   display: block;
   font-family: var(--serif);
-  font-size: clamp(2.9rem, 7vw, 5.8rem);
-  line-height: .9;
-  letter-spacing: -.05em;
+  font-size: clamp(2.2rem, 5.2vw, 4.6rem);
+  line-height: .98;
+  letter-spacing: -.03em;
   color: var(--ink-0);
   text-shadow: 0 0 30px rgba(217, 185, 122, .12);
 }
@@ -75,10 +144,40 @@
 .views-highlight__label {
   display: block;
   margin-top: 10px;
-  font-size: 13px;
-  letter-spacing: .22em;
+  font-size: 15px;
+  letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--ink-2);
+}
+
+.social-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.social-row a {
+  min-width: 132px;
+  height: 52px;
+  padding: 0 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(217, 185, 122, .24);
+  background: rgba(18, 16, 14, .86);
+  color: var(--ink-0);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.social-row a svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
 }
 
 .experiencia .section-head,
@@ -256,21 +355,23 @@
 }
 
 @media (min-width: 1201px) {
-  .autoridade-mosaic.authority-plus-grid.authority-desktop-large {
-    grid-template-columns: repeat(5, minmax(195px, 1fr));
-    gap: 30px;
+  .autoridade-mosaic.authority-plus-grid {
+    grid-template-columns: repeat(5, minmax(220px, 1fr));
+    gap: 26px;
+    max-width: 1420px;
+    margin: 0 auto;
   }
 
-  .authority-desktop-large .authority-plus-card {
-    border-radius: 32px;
+  .authority-plus-card {
+    border-radius: 34px;
   }
 
-  .authority-desktop-large .authority-plus-media {
-    aspect-ratio: 3 / 4.95;
+  .authority-plus-media {
+    aspect-ratio: 3 / 5.2;
   }
 
-  .authority-desktop-large .authority-plus-name {
-    font-size: 2.12rem;
+  .authority-plus-name {
+    font-size: 2.18rem;
   }
 }
 
@@ -302,6 +403,22 @@
     grid-template-columns: 1fr;
   }
 
+  .hero-poster-play {
+    width: 72px;
+    height: 72px;
+  }
+
+  .hero-poster-play svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .hero-poster-cta {
+    min-width: 180px;
+    padding: 12px 18px;
+    font-size: 12px;
+  }
+
   .yt-showcase-play {
     width: 58px;
     height: 58px;
@@ -315,5 +432,12 @@
     right: 12px;
     top: 12px;
     padding: 8px 12px;
+  }
+
+  .social-row a {
+    min-width: 116px;
+    height: 48px;
+    padding: 0 16px;
+    font-size: 14px;
   }
 }
