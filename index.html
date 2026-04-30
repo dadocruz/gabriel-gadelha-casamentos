@@ -22,33 +22,63 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./src/styles/main.css?v=20260430-2" />
-  <link rel="stylesheet" href="./src/styles/youtube-inline-gallery.css?v=20260430-2" />
+  <link rel="stylesheet" href="./src/styles/main.css?v=20260430-3" />
+  <link rel="stylesheet" href="./src/styles/youtube-inline-gallery.css?v=20260430-3" />
 
   <style>
-    .views-highlight__number {font-size: clamp(2.4rem,5.8vw,4.9rem)!important; text-transform:none!important;}
-    .views-highlight__label {font-size: 16px!important; letter-spacing:.14em!important;}
-    .social-row {display:flex!important; flex-wrap:wrap!important; gap:14px!important; margin-top:28px!important;}
-    .social-row a {min-width:132px!important; height:52px!important; padding:0 20px!important; border-radius:999px!important; display:inline-flex!important; align-items:center!important; justify-content:center!important; gap:8px!important; white-space:nowrap!important; text-decoration:none!important;}
-    .social-row a span {display:inline-block!important; line-height:1!important;}
-    .autoridade .container {max-width:1560px!important; width:min(1560px,calc(100% - 48px))!important;}
-    .autoridade-mosaic.authority-plus-grid {grid-template-columns: repeat(5, minmax(220px, 1fr))!important; gap:26px!important; max-width:1420px!important; margin:0 auto!important;}
-    .authority-plus-card,.authority-plus-card--hero,.authority-plus-card--wide,.authority-plus-card--standard {border-radius:34px!important;}
-    .authority-plus-media {aspect-ratio:3/5.2!important;}
-    .authority-plus-name {font-size:2.18rem!important;}
-    .hero-video {overflow:hidden!important;}
+    .views-highlight {padding: 30px 30px 26px !important;}
+    .views-highlight__eyebrow {font-size:11px !important; letter-spacing:.30em !important; margin-bottom:12px !important;}
+    .views-highlight__number {
+      font-size: clamp(2.35rem,5.2vw,4.7rem) !important;
+      text-transform: uppercase !important;
+      letter-spacing: .02em !important;
+      line-height: 1.02 !important;
+    }
+    .views-highlight__label {
+      font-size: 16px !important;
+      letter-spacing: .18em !important;
+      text-transform: uppercase !important;
+      font-weight: 700 !important;
+    }
+    .social-row {display:flex !important; flex-wrap:wrap !important; gap:14px !important; margin-top:28px !important;}
+    .social-row a {
+      min-width:138px !important; height:52px !important; padding:0 20px !important; border-radius:999px !important;
+      display:inline-flex !important; align-items:center !important; justify-content:center !important; gap:8px !important;
+      white-space:nowrap !important; text-decoration:none !important;
+    }
+    .social-row a span {display:inline-block !important; line-height:1 !important;}
+    .autoridade .container {max-width:1720px !important; width:min(1720px,calc(100% - 52px)) !important;}
+    .autoridade-mosaic.authority-plus-grid {
+      grid-template-columns: repeat(5, minmax(250px, 1fr)) !important;
+      gap: 24px !important;
+      max-width: 1600px !important;
+      margin: 0 auto !important;
+    }
+    .authority-plus-card,.authority-plus-card--hero,.authority-plus-card--wide,.authority-plus-card--standard {border-radius:34px !important;}
+    .authority-plus-media {
+      aspect-ratio: 4.3 / 5.2 !important;
+      overflow: hidden !important;
+    }
+    .authority-plus-media img {
+      object-fit: cover !important;
+      object-position: center center !important;
+      transform: scale(1.01) !important;
+    }
+    .authority-plus-name {font-size:2rem !important;}
+    .hero-video {overflow:hidden !important;}
+    .hero-sound-btn {text-transform: uppercase !important; letter-spacing: .09em !important;}
     @media (max-width:1200px){
-      .autoridade-mosaic.authority-plus-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;max-width:none!important;}
-      .authority-plus-name{font-size:1.7rem!important;}
+      .autoridade-mosaic.authority-plus-grid{grid-template-columns:repeat(3,minmax(0,1fr)) !important;max-width:none !important;}
+      .authority-plus-name{font-size:1.7rem !important;}
     }
     @media (max-width:800px){
-      .autoridade-mosaic.authority-plus-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+      .autoridade .container{width:min(100% - 28px, 100%) !important;}
+      .autoridade-mosaic.authority-plus-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:18px !important;}
+      .authority-plus-media{aspect-ratio:4 / 5.2 !important;}
     }
     @media (max-width:560px){
-      .autoridade .container{width:min(100% - 28px, 100%)!important;}
-      .autoridade-mosaic.authority-plus-grid{grid-template-columns:1fr!important;}
-      .social-row a{min-width:116px!important;height:48px!important;padding:0 16px!important;font-size:14px!important;}
-      .authority-plus-name{font-size:1.4rem!important;}
+      .autoridade-mosaic.authority-plus-grid{grid-template-columns:1fr !important;}
+      .social-row a{min-width:116px !important;height:48px !important;padding:0 16px !important;font-size:14px !important;}
     }
   </style>
 
@@ -120,13 +150,13 @@
         <div class="hero-frame"></div>
 
         <button class="hero-sound-btn" id="heroSoundBtn" type="button">
-          Ativar áudio
+          ATIVAR ÁUDIO
         </button>
 
         <div class="hero-video">
           <iframe
             id="heroShortFrame"
-            src="https://www.youtube-nocookie.com/embed/3U183bGOk74?autoplay=1&mute=1&loop=1&playlist=3U183bGOk74&controls=0&modestbranding=1&playsinline=1&rel=0"
+            src="https://www.youtube-nocookie.com/embed/3U183bGOk74?autoplay=1&mute=1&loop=1&playlist=3U183bGOk74&controls=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1&vq=hd1080"
             title="Gabriel Gadelha short"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
@@ -163,64 +193,93 @@
   <section class="section cta-final" id="contato"><div class="container cta-grid"><div class="cta-content reveal"><span class="section-kicker">06 — Orçamento e disponibilidade</span><h2 class="section-title"><span class="italic serif">Peça orçamento para</span><br /><span class="display">o seu casamento</span></h2><p class="cta-text">Envie sua data pelo WhatsApp e receba atendimento personalizado para entender disponibilidade, formato ideal e proposta para o seu evento.</p><div class="cta-info"><div class="cta-info-row"><span class="label">WhatsApp</span><a href="https://wa.me/5519993941536?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20or%C3%A7amento%20para%20show%20de%20casamento%20com%20Gabriel%20Gadelha.%20Data%20do%20evento%3A%20___%20%2F%20Cidade%3A%20___%20%2F%20Local%3A%20___%20%2F%20Convidados%3A%20___" target="_blank" rel="noopener">+55 19 99394-1536</a></div><div class="cta-info-row"><span class="label">Instagram</span><a href="https://www.instagram.com/gabrielgadelhacantor" target="_blank" rel="noopener">@gabrielgadelhacantor</a></div><div class="cta-info-row"><span class="label">Atendimento</span><span>Campinas, interior de SP e outras regiões</span></div></div><a class="btn btn-primary btn-lg" href="https://wa.me/5519993941536?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20or%C3%A7amento%20para%20show%20de%20casamento%20com%20Gabriel%20Gadelha.%20Data%20do%20evento%3A%20___%20%2F%20Cidade%3A%20___%20%2F%20Local%3A%20___%20%2F%20Convidados%3A%20___" target="_blank" rel="noopener">Chamar no WhatsApp</a></div></div></section>
   <footer class="site-footer"><div class="container footer-inner"><div class="footer-brand"><span class="brand-mark">GG</span><span class="serif italic">Gabriel Gadelha</span></div><div class="footer-social"><a href="https://open.spotify.com/intl-pt/artist/7rn7EcrpdAvTnVqFlOXaBS" target="_blank" rel="noopener">Spotify</a><a href="https://www.youtube.com/channel/UCoLNV7pVR89EvqqOMdClcWg" target="_blank" rel="noopener">YouTube</a><a href="https://www.instagram.com/gabrielgadelhacantor" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@gabrielgadelhacantor" target="_blank" rel="noopener">TikTok</a></div><p class="footer-copy">© <span id="yearNow">2026</span> Gabriel Gadelha — Todos os direitos reservados.</p></div></footer>
   <a class="whatsapp-float" href="https://wa.me/5519993941536?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20or%C3%A7amento%20para%20show%20de%20casamento%20com%20Gabriel%20Gadelha.%20Data%20do%20evento%3A%20___%20%2F%20Cidade%3A%20___%20%2F%20Local%3A%20___%20%2F%20Convidados%3A%20___" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a9.93 9.93 0 0 0-8.58 14.9L2 22l5.23-1.37A9.93 9.93 0 1 0 12.04 2m0 1.82a8.11 8.11 0 0 1 6.95 12.36l-.21.33.8 2.92-3-.78-.32.19a8.1 8.1 0 0 1-12.33-6.93a8.12 8.12 0 0 1 8.11-8.09m-4.4 4.37c-.2 0-.52.07-.8.38s-1.05 1.02-1.05 2.5s1.07 2.89 1.22 3.1c.15.2 2.07 3.31 5.12 4.51c2.54 1 3.05.8 3.6.75c.56-.05 1.78-.73 2.03-1.43c.25-.7.25-1.3.17-1.43c-.07-.12-.27-.2-.57-.35c-.3-.15-1.78-.88-2.05-.98c-.27-.1-.48-.15-.68.15c-.2.3-.78.98-.95 1.18c-.17.2-.35.22-.65.08c-.3-.15-1.26-.46-2.4-1.48c-.89-.79-1.49-1.77-1.66-2.07c-.17-.3-.02-.46.13-.61c.13-.13.3-.35.44-.52c.15-.18.2-.3.3-.5c.1-.2.05-.37-.03-.52c-.07-.15-.68-1.64-.94-2.24c-.22-.5-.45-.44-.62-.45z"/></svg><span class="wa-pulse"></span></a>
-  <script src="./src/scripts/main.js?v=20260430-2"></script>
+  <script src="./src/scripts/main.js?v=20260430-3"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
   <script>
     (() => {
       const viewsNumber = document.querySelector('.views-highlight__number');
       const viewsLabel = document.querySelector('.views-highlight__label');
-      if (viewsNumber) viewsNumber.textContent = '+ de 20 milhões';
-      if (viewsLabel) viewsLabel.textContent = 'de visualizações no YouTube';
+      if (viewsNumber) viewsNumber.textContent = '+ DE 20 MILHÕES';
+      if (viewsLabel) viewsLabel.textContent = 'DE VISUALIZAÇÕES NO YOUTUBE';
 
-      const heroWrap = document.querySelector('.hero-photo-wrap');
-      const heroVideo = document.querySelector('.hero-video');
-      const heroSoundBtn = document.getElementById('heroSoundBtn');
       const heroVideoId = '3U183bGOk74';
-      if (!heroWrap || !heroVideo || !heroSoundBtn) return;
+      const heroFrame = document.getElementById('heroShortFrame');
+      const heroSoundBtn = document.getElementById('heroSoundBtn');
+      if (!heroFrame || !heroSoundBtn) return;
 
-      const buildHeroSrc = (soundOn) => {
-        const mute = soundOn ? 0 : 1;
-        const controls = soundOn ? 1 : 0;
-        return `https://www.youtube-nocookie.com/embed/${heroVideoId}?autoplay=1&mute=${mute}&loop=1&playlist=${heroVideoId}&controls=${controls}&modestbranding=1&playsinline=1&rel=0`;
+      const buildHeroSrc = (muted = true) => `https://www.youtube-nocookie.com/embed/${heroVideoId}?autoplay=1&mute=${muted ? 1 : 0}&loop=1&playlist=${heroVideoId}&controls=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1&vq=hd1080`;
+      heroFrame.src = buildHeroSrc(true);
+
+      let heroPlayer = null;
+      let heroReady = false;
+      let wantedSoundOnReady = false;
+      let soundOn = false;
+
+      const setButton = (on) => {
+        soundOn = on;
+        heroSoundBtn.classList.toggle('is-active', on);
+        heroSoundBtn.textContent = on ? 'DESATIVAR ÁUDIO' : 'ATIVAR ÁUDIO';
       };
 
-      const renderPoster = () => {
-        heroVideo.innerHTML = `
-          <button class="hero-poster-launch" type="button" aria-label="Assistir vídeo com áudio">
-            <img class="hero-poster-image" src="https://i.ytimg.com/vi/${heroVideoId}/maxresdefault.jpg" alt="Gabriel Gadelha em show ao vivo" loading="eager" />
-            <span class="hero-poster-shade"></span>
-            <span class="hero-poster-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span>
-            <span class="hero-poster-cta">Ouvir com áudio</span>
-          </button>`;
-        const img = heroVideo.querySelector('.hero-poster-image');
-        if (img) {
-          img.addEventListener('error', () => {
-            if (img.src.includes('maxresdefault')) img.src = `https://i.ytimg.com/vi/${heroVideoId}/sddefault.jpg`;
-            else if (img.src.includes('sddefault')) img.src = `https://i.ytimg.com/vi/${heroVideoId}/hqdefault.jpg`;
-          });
+      const forceHd = () => {
+        if (!heroPlayer) return;
+        try { heroPlayer.setPlaybackQuality('hd1080'); } catch (_) {}
+        try { heroPlayer.setPlaybackQuality('hd720'); } catch (_) {}
+      };
+
+      const unmuteNow = () => {
+        if (!heroPlayer || !heroReady) {
+          wantedSoundOnReady = true;
+          return;
         }
-        heroVideo.querySelector('.hero-poster-launch')?.addEventListener('click', (e) => {
-          e.preventDefault(); e.stopPropagation(); renderPlayer(true);
-          heroSoundBtn.classList.add('is-active');
-          heroSoundBtn.textContent = 'Desativar áudio';
-        }, { once: true });
+        try {
+          heroPlayer.unMute();
+          heroPlayer.setVolume(100);
+          heroPlayer.playVideo();
+          forceHd();
+          setButton(true);
+        } catch (_) {
+          wantedSoundOnReady = true;
+        }
       };
 
-      const renderPlayer = (soundOn) => {
-        heroVideo.innerHTML = `<iframe id="heroShortFrame" src="${buildHeroSrc(soundOn)}" title="Gabriel Gadelha short" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
-        heroVideo.dataset.sound = soundOn ? 'on' : 'off';
+      const muteNow = () => {
+        if (!heroPlayer || !heroReady) return;
+        try {
+          heroPlayer.mute();
+          heroPlayer.playVideo();
+          setButton(false);
+        } catch (_) {}
       };
 
-      heroSoundBtn.textContent = 'Ouvir com áudio';
-      heroSoundBtn.classList.remove('is-active');
-      heroSoundBtn.onclick = (e) => {
-        e.preventDefault(); e.stopPropagation();
-        const nextSound = heroVideo.dataset.sound !== 'on';
-        renderPlayer(nextSound);
-        heroSoundBtn.classList.toggle('is-active', nextSound);
-        heroSoundBtn.textContent = nextSound ? 'Desativar áudio' : 'Ouvir com áudio';
-      };
+      heroSoundBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (soundOn) muteNow();
+        else unmuteNow();
+      });
 
-      renderPoster();
+      window.onYouTubeIframeAPIReady = () => {
+        heroPlayer = new YT.Player('heroShortFrame', {
+          events: {
+            onReady: (event) => {
+              heroReady = true;
+              try {
+                event.target.mute();
+                event.target.playVideo();
+                forceHd();
+              } catch (_) {}
+              if (wantedSoundOnReady) {
+                wantedSoundOnReady = false;
+                unmuteNow();
+              }
+            },
+            onStateChange: () => {
+              if (!soundOn) forceHd();
+            }
+          }
+        });
+      };
     })();
   </script>
 </body></html>
