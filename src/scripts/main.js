@@ -72,10 +72,15 @@
   let heroSoundOn = false;
   const heroVideoId = '3U183bGOk74';
 
+  const buildHeroSrc = (soundOn) => {
+    const mute = soundOn ? 0 : 1;
+    const controls = soundOn ? 1 : 0;
+    return `https://www.youtube-nocookie.com/embed/${heroVideoId}?autoplay=1&mute=${mute}&loop=1&playlist=${heroVideoId}&controls=${controls}&modestbranding=1&playsinline=1&rel=0`;
+  };
+
   const setHeroVideoSrc = (soundOn) => {
     if (!heroFrame) return;
-    const mute = soundOn ? 0 : 1;
-    heroFrame.src = `https://www.youtube-nocookie.com/embed/${heroVideoId}?autoplay=1&mute=${mute}&loop=1&playlist=${heroVideoId}&controls=0&modestbranding=1&playsinline=1&rel=0`;
+    heroFrame.src = buildHeroSrc(soundOn);
   };
 
   const applyHeroSoundState = (soundOn, btn) => {
@@ -100,28 +105,11 @@
       heroWrap.appendChild(heroSoundBtn);
     }
 
-    const activateHeroAudio = () => {
-      if (heroSoundOn) return;
-      applyHeroSoundState(true, heroSoundBtn);
-    };
-
     heroSoundBtn.addEventListener('click', (event) => {
+      event.preventDefault();
       event.stopPropagation();
       applyHeroSoundState(!heroSoundOn, heroSoundBtn);
     });
-
-    heroWrap.addEventListener('click', (event) => {
-      if (event.target.closest('.hero-sound-btn')) return;
-      activateHeroAudio();
-    });
-
-    window.addEventListener(
-      'pointerdown',
-      () => {
-        activateHeroAudio();
-      },
-      { once: true, passive: true }
-    );
   }
 
   document.addEventListener('click', (event) => {
