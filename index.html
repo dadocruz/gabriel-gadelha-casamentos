@@ -22,8 +22,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./src/styles/main.css?v=20260430-3" />
-  <link rel="stylesheet" href="./src/styles/youtube-inline-gallery.css?v=20260430-3" />
+  <link rel="stylesheet" href="./src/styles/main.css?v=20260430-4" />
+  <link rel="stylesheet" href="./src/styles/youtube-inline-gallery.css?v=20260430-4" />
 
   <style>
     .views-highlight {padding: 30px 30px 26px !important;}
@@ -266,6 +266,106 @@
 
       .authority-plus-name {
         font-size: 1.16rem !important;
+      }
+    }
+
+  
+    @media (max-width: 800px) {
+      .autoridade .container {
+        width: min(100% - 14px, 100%) !important;
+        max-width: none !important;
+        margin: 0 auto !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+
+      .autoridade-mosaic.authority-plus-grid,
+      .autoridade .authority-plus-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 auto !important;
+        justify-items: stretch !important;
+        align-items: stretch !important;
+      }
+
+      .autoridade-mosaic.authority-plus-grid > *,
+      .autoridade .authority-plus-grid > * {
+        width: 100% !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        justify-self: stretch !important;
+        margin: 0 !important;
+        transform: none !important;
+      }
+
+      .authority-plus-card,
+      .authority-plus-card--hero,
+      .authority-plus-card--wide,
+      .authority-plus-card--standard {
+        display: block !important;
+        width: 100% !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        border-radius: 18px !important;
+        overflow: hidden !important;
+        margin: 0 !important;
+      }
+
+      .authority-plus-media {
+        display: block !important;
+        width: 100% !important;
+        aspect-ratio: 16 / 9 !important;
+        border-radius: 18px !important;
+        overflow: hidden !important;
+      }
+
+      .authority-plus-media img {
+        width: 100% !important;
+        height: 100% !important;
+        display: block !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+      }
+
+      .authority-plus-caption {
+        left: 12px !important;
+        right: 12px !important;
+        bottom: 12px !important;
+      }
+
+      .authority-plus-kicker {
+        font-size: 9px !important;
+      }
+
+      .authority-plus-name {
+        font-size: 1.2rem !important;
+        line-height: 1.03 !important;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .autoridade .container {
+        width: min(100% - 12px, 100%) !important;
+      }
+
+      .autoridade-mosaic.authority-plus-grid,
+      .autoridade .authority-plus-grid {
+        gap: 10px !important;
+      }
+
+      .authority-plus-card,
+      .authority-plus-card--hero,
+      .authority-plus-card--wide,
+      .authority-plus-card--standard,
+      .authority-plus-media {
+        border-radius: 16px !important;
+      }
+
+      .authority-plus-name {
+        font-size: 1.08rem !important;
       }
     }
 
