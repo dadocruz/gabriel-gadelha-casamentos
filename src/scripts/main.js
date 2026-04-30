@@ -3,6 +3,90 @@
 
   document.documentElement.classList.add('js-ready');
 
+  const runtimeStyle = document.createElement('style');
+  runtimeStyle.textContent = `
+    @media (max-width: 800px) {
+      .autoridade .container {
+        width: min(100% - 20px, 100%) !important;
+        max-width: none !important;
+      }
+
+      .autoridade-mosaic.authority-plus-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 auto !important;
+      }
+
+      .authority-plus-card,
+      .authority-plus-card--hero,
+      .authority-plus-card--wide,
+      .authority-plus-card--standard {
+        display: block !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        border-radius: 22px !important;
+        overflow: hidden !important;
+      }
+
+      .authority-plus-media {
+        display: block !important;
+        width: 100% !important;
+        aspect-ratio: 16 / 9 !important;
+        border-radius: 22px !important;
+        overflow: hidden !important;
+      }
+
+      .authority-plus-media img {
+        width: 100% !important;
+        height: 100% !important;
+        display: block !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+      }
+
+      .authority-plus-caption {
+        left: 14px !important;
+        right: 14px !important;
+        bottom: 14px !important;
+      }
+
+      .authority-plus-kicker {
+        font-size: 9px !important;
+      }
+
+      .authority-plus-name {
+        font-size: 1.35rem !important;
+        line-height: 1.02 !important;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .autoridade .container {
+        width: min(100% - 16px, 100%) !important;
+      }
+
+      .authority-plus-card,
+      .authority-plus-card--hero,
+      .authority-plus-card--wide,
+      .authority-plus-card--standard {
+        border-radius: 18px !important;
+      }
+
+      .authority-plus-media {
+        aspect-ratio: 16 / 10 !important;
+        border-radius: 18px !important;
+      }
+
+      .authority-plus-name {
+        font-size: 1.2rem !important;
+      }
+    }
+  `;
+  document.head.appendChild(runtimeStyle);
+
   const yearEl = document.getElementById('yearNow');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
