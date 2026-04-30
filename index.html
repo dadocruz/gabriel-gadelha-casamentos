@@ -190,6 +190,85 @@
       }
     }
 
+  
+    @media (max-width: 800px) {
+      .autoridade .container {
+        width: min(100% - 24px, 100%) !important;
+      }
+
+      .autoridade-mosaic.authority-plus-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 14px !important;
+        max-width: none !important;
+        align-items: stretch !important;
+      }
+
+      .authority-plus-card,
+      .authority-plus-card--hero,
+      .authority-plus-card--wide,
+      .authority-plus-card--standard {
+        display: block !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        border-radius: 24px !important;
+        overflow: hidden !important;
+      }
+
+      .authority-plus-media {
+        display: block !important;
+        width: 100% !important;
+        aspect-ratio: 1 / 1.22 !important;
+        border-radius: 24px !important;
+        overflow: hidden !important;
+      }
+
+      .authority-plus-media img {
+        width: 100% !important;
+        height: 100% !important;
+        display: block !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+      }
+
+      .authority-plus-caption {
+        left: 12px !important;
+        right: 12px !important;
+        bottom: 12px !important;
+      }
+
+      .authority-plus-kicker {
+        font-size: 9px !important;
+      }
+
+      .authority-plus-name {
+        font-size: 1.28rem !important;
+        line-height: 1.02 !important;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .autoridade-mosaic.authority-plus-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 12px !important;
+      }
+
+      .authority-plus-card,
+      .authority-plus-card--hero,
+      .authority-plus-card--wide,
+      .authority-plus-card--standard {
+        border-radius: 20px !important;
+      }
+
+      .authority-plus-media {
+        aspect-ratio: 1 / 1.28 !important;
+        border-radius: 20px !important;
+      }
+
+      .authority-plus-name {
+        font-size: 1.16rem !important;
+      }
+    }
+
   </style>
 
 </head>
