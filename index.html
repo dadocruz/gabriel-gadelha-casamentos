@@ -648,6 +648,35 @@
       }
     }
 
+  
+    /* HERO MOBILE — elimina as bordas pretas laterais do vídeo com crop controlado */
+    .hero-video {
+      position: relative !important;
+      overflow: hidden !important;
+      background: #000 !important;
+    }
+
+    @media (max-width: 800px) {
+      .hero-video iframe {
+        position: absolute !important;
+        top: 0 !important;
+        left: 50% !important;
+        width: 146% !important;
+        max-width: none !important;
+        height: 100% !important;
+        border: 0 !important;
+        display: block !important;
+        transform: translateX(-50%) !important;
+        background: #000 !important;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero-video iframe {
+        width: 152% !important;
+      }
+    }
+
   </style>
 
 </head>
@@ -667,10 +696,9 @@
       </span>
 
       <h1 class="hero-title">
-        <span class="title-line title-serif italic">Cantor para</span>
+        <span class="title-line title-serif italic">eternize seu</span>
         <span class="title-line title-display">CASAMENTO</span>
-        <span class="title-line title-serif italic">com show sertanejo</span>
-        <span class="title-line title-display outlined">ao vivo premium</span>
+        <span class="title-line title-serif italic">com nosso show sertanejo</span>
       </h1>
 
       <p class="hero-sub">
