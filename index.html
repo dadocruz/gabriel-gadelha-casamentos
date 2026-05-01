@@ -22,8 +22,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./src/styles/main.css?v=20260430-5" />
-  <link rel="stylesheet" href="./src/styles/youtube-inline-gallery.css?v=20260430-5" />
+  <link rel="stylesheet" href="./src/styles/main.css?v=20260430-6" />
+  <link rel="stylesheet" href="./src/styles/youtube-inline-gallery.css?v=20260430-6" />
 
   <style>
     .views-highlight {padding: 30px 30px 26px !important;}
@@ -509,48 +509,76 @@
       }
     }
 
+  
+    /* AJUSTE DE CONVERSÃO — hero sem barras laterais e saídas externas reduzidas */
+    .hero-video {
+      position: relative !important;
+      overflow: hidden !important;
+      background: #000 !important;
+    }
+
+    .hero-video iframe {
+      position: absolute !important;
+      inset: 0 auto 0 50% !important;
+      width: 132% !important;
+      max-width: none !important;
+      height: 100% !important;
+      border: 0 !important;
+      display: block !important;
+      transform: translateX(-50%) !important;
+      pointer-events: none !important;
+      background: #000 !important;
+    }
+
+    .yt-showcase-player {
+      position: relative !important;
+      overflow: hidden !important;
+      cursor: pointer !important;
+    }
+
+    .yt-showcase-player iframe {
+      pointer-events: none !important;
+      border: 0 !important;
+    }
+
+    .social-row .is-static-link,
+    .footer-social .is-static-link,
+    .cta-info-row .is-static-link {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      text-decoration: none !important;
+      color: inherit !important;
+    }
+
+    .social-row .is-static-link {
+      min-width: 138px !important;
+      height: 52px !important;
+      padding: 0 20px !important;
+      border-radius: 999px !important;
+    }
+
+    @media (max-width: 900px) {
+      .hero-video iframe {
+        width: 126% !important;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero-video iframe {
+        width: 122% !important;
+      }
+
+      .social-row .is-static-link {
+        min-width: 116px !important;
+        height: 48px !important;
+        padding: 0 16px !important;
+        font-size: 14px !important;
+      }
+    }
+
   </style>
-
-  <link rel="canonical" href="https://gabrielgadelhacantor.com/" />
-  <meta property="og:url" content="https://gabrielgadelhacantor.com/" />
-  <meta name="twitter:site" content="@gabrielgadelhacantor" />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MusicGroup",
-    "name": "Gabriel Gadelha",
-    "url": "https://gabrielgadelhacantor.com/",
-    "genre": "Sertanejo",
-    "sameAs": [
-      "https://www.instagram.com/gabrielgadelhacantor/",
-      "https://www.tiktok.com/@gabrielgadelhacantor",
-      "https://www.youtube.com/@GabrielGadelhaoficial",
-      "https://open.spotify.com/intl-pt/artist/7rn7EcrpdAvTnVqFlOXaBS"
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Gabriel Gadelha",
-    "url": "https://gabrielgadelhacantor.com/",
-    "telephone": "+55 19 99394-1536",
-    "areaServed": [
-      "Campinas",
-      "Região Metropolitana de Campinas",
-      "Interior de São Paulo"
-    ],
-    "priceRange": "$$",
-    "sameAs": [
-      "https://www.instagram.com/gabrielgadelhacantor/",
-      "https://www.tiktok.com/@gabrielgadelhacantor",
-      "https://www.youtube.com/@GabrielGadelhaoficial",
-      "https://open.spotify.com/intl-pt/artist/7rn7EcrpdAvTnVqFlOXaBS"
-    ]
-  }
-  </script>
 
 </head>
 <body>
@@ -664,6 +692,7 @@
   <footer class="site-footer"><div class="container footer-inner"><div class="footer-brand"><span class="brand-mark">GG</span><span class="serif italic">Gabriel Gadelha</span></div><div class="footer-social"><a href="https://open.spotify.com/intl-pt/artist/7rn7EcrpdAvTnVqFlOXaBS" target="_blank" rel="noopener">Spotify</a><a href="https://www.youtube.com/channel/UCoLNV7pVR89EvqqOMdClcWg" target="_blank" rel="noopener">YouTube</a><a href="https://www.instagram.com/gabrielgadelhacantor" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@gabrielgadelhacantor" target="_blank" rel="noopener">TikTok</a></div><p class="footer-copy">© <span id="yearNow">2026</span> Gabriel Gadelha — Todos os direitos reservados.</p></div></footer>
   <a class="whatsapp-float" href="https://wa.me/5519993941536?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20or%C3%A7amento%20para%20show%20de%20casamento%20com%20Gabriel%20Gadelha.%20Data%20do%20evento%3A%20___%20%2F%20Cidade%3A%20___%20%2F%20Local%3A%20___%20%2F%20Convidados%3A%20___" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a9.93 9.93 0 0 0-8.58 14.9L2 22l5.23-1.37A9.93 9.93 0 1 0 12.04 2m0 1.82a8.11 8.11 0 0 1 6.95 12.36l-.21.33.8 2.92-3-.78-.32.19a8.1 8.1 0 0 1-12.33-6.93a8.12 8.12 0 0 1 8.11-8.09m-4.4 4.37c-.2 0-.52.07-.8.38s-1.05 1.02-1.05 2.5s1.07 2.89 1.22 3.1c.15.2 2.07 3.31 5.12 4.51c2.54 1 3.05.8 3.6.75c.56-.05 1.78-.73 2.03-1.43c.25-.7.25-1.3.17-1.43c-.07-.12-.27-.2-.57-.35c-.3-.15-1.78-.88-2.05-.98c-.27-.1-.48-.15-.68.15c-.2.3-.78.98-.95 1.18c-.17.2-.35.22-.65.08c-.3-.15-1.26-.46-2.4-1.48c-.89-.79-1.49-1.77-1.66-2.07c-.17-.3-.02-.46.13-.61c.13-.13.3-.35.44-.52c.15-.18.2-.3.3-.5c.1-.2.05-.37-.03-.52c-.07-.15-.68-1.64-.94-2.24c-.22-.5-.45-.44-.62-.45z"/></svg><span class="wa-pulse"></span></a>
 
+  
   <script>
     (() => {
       'use strict';
@@ -711,16 +740,28 @@
         });
       });
 
+      /* Mantém o usuário no site: neutraliza links sociais externos */
+      const isSocialHref = (href) => /spotify|youtube|instagram|tiktok/i.test(href || '');
+      document.querySelectorAll('a[href]').forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (!isSocialHref(href)) return;
+        if (href.includes('wa.me/5519993941536')) return;
+
+        const replacement = document.createElement('span');
+        replacement.className = `${link.className} is-static-link`.trim();
+        replacement.setAttribute('aria-label', link.getAttribute('aria-label') || link.textContent.trim());
+        replacement.innerHTML = link.innerHTML;
+        link.replaceWith(replacement);
+      });
+
       const heroVideoId = '3U183bGOk74';
       const heroFrame = document.getElementById('heroShortFrame');
       const heroSoundBtn = document.getElementById('heroSoundBtn');
-      const heroVideoWrap = document.querySelector('.hero-video');
       let heroSoundOn = false;
 
       const buildHeroSrc = (withSound = false) => {
         const mute = withSound ? 0 : 1;
-        const controls = withSound ? 1 : 0;
-        return `https://www.youtube-nocookie.com/embed/${heroVideoId}?autoplay=1&mute=${mute}&loop=1&playlist=${heroVideoId}&controls=${controls}&modestbranding=1&playsinline=1&rel=0&vq=hd1080`;
+        return `https://www.youtube-nocookie.com/embed/${heroVideoId}?autoplay=1&mute=${mute}&loop=1&playlist=${heroVideoId}&controls=0&fs=0&disablekb=1&iv_load_policy=3&modestbranding=1&playsinline=1&rel=0&vq=hd1080`;
       };
 
       const setHeroState = (withSound) => {
@@ -737,11 +778,8 @@
       showcaseCards.forEach((card) => {
         const btn = card.querySelector('.yt-showcase-trigger');
         if (!btn) return;
-        const img = btn.querySelector('img');
         card.dataset.videoId = btn.dataset.youtubeId || '';
         card.dataset.videoTitle = btn.dataset.videoTitle || 'Vídeo do YouTube';
-        card.dataset.thumbSrc = img?.getAttribute('src') || '';
-        card.dataset.thumbAlt = img?.getAttribute('alt') || 'Capa do vídeo';
         card.dataset.buttonHtml = card.innerHTML;
       });
 
@@ -766,6 +804,13 @@
       });
 
       document.addEventListener('click', (event) => {
+        const activePlayer = event.target.closest('.yt-showcase-player');
+        if (activePlayer) {
+          const card = activePlayer.closest('.yt-showcase-card');
+          restoreCard(card);
+          return;
+        }
+
         const trigger = event.target.closest('.yt-showcase-trigger');
         if (!trigger) return;
 
@@ -780,50 +825,23 @@
         const videoId = card.dataset.videoId;
         const videoTitle = card.dataset.videoTitle || 'Vídeo do YouTube';
         card.innerHTML = `
-          <div class="yt-showcase-player">
+          <div class="yt-showcase-player" aria-label="${videoTitle}">
             <iframe
-              src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=0&controls=1&rel=0&modestbranding=1&playsinline=1"
+              src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=0&controls=0&fs=0&disablekb=1&iv_load_policy=3&rel=0&modestbranding=1&playsinline=1"
               title="${videoTitle}"
               loading="eager"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
             ></iframe>
           </div>
         `;
       });
 
-      // Guarantee hero starts in muted autoplay on first load
+      /* Garante autoplay inicial do hero, sem saída externa pelo próprio player */
       if (heroFrame) {
         heroFrame.src = buildHeroSrc(false);
       }
     })();
   </script>
-
-  <script>
-    (() => {
-      const whatsappLinks = Array.from(document.querySelectorAll('a[href*="wa.me/5519993941536"]'));
-      whatsappLinks.forEach((link, index) => {
-        if (!link.dataset.cta) {
-          const label =
-            link.classList.contains('header-cta') ? 'header' :
-            link.closest('.hero') ? 'hero' :
-            link.closest('.site-footer') ? 'footer' :
-            link.classList.contains('floating-whatsapp') ? 'floating' :
-            `whatsapp_${index + 1}`;
-          link.dataset.cta = label;
-        }
-        link.addEventListener('click', () => {
-          const source = link.dataset.cta || 'unknown';
-          if (typeof window.gtag === 'function') {
-            window.gtag('event', 'whatsapp_click', { source });
-          }
-          if (typeof window.fbq === 'function') {
-            window.fbq('track', 'Contact', { source });
-          }
-        }, { passive: true });
-      });
-    })();
-  </script>
-
 </body></html>
+
