@@ -264,4 +264,19 @@
     `;
     trigger.replaceWith(player);
   });
+
+  // WhatsApp click tracking helper for GTM/GA4.
+  // This is harmless before GTM is installed and will push clique_whatsapp once GTM is active.
+  document.querySelectorAll('.btn-whatsapp[href*="wa.me"]').forEach((link) => {
+    link.addEventListener('click', () => {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'clique_whatsapp',
+        pacote: link.getAttribute('data-pacote') || 'geral',
+        link_text: (link.textContent || '').trim().replace(/s+/g, ' '),
+        link_url: link.href
+      });
+    });
+  });
+
 })();
