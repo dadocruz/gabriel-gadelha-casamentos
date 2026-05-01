@@ -509,6 +509,28 @@
       }
     }
 
+  
+    /* AJUSTE APENAS NO MOBILE — texto em cima e vídeo embaixo; desktop permanece igual */
+    @media (max-width: 800px) {
+      .hero .hero-inner {
+        grid-template-columns: 1fr !important;
+        gap: 22px !important;
+        align-items: start !important;
+      }
+
+      .hero .hero-text,
+      .hero .hero-visual,
+      .hero .hero-photo-wrap {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+      }
+
+      .hero .hero-visual {
+        justify-content: flex-start !important;
+      }
+    }
+
   </style>
 
   <link rel="canonical" href="https://gabrielgadelhacantor.com/" />
