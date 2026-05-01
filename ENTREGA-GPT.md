@@ -58,3 +58,9 @@ Arquivos alterados:
 - ID instalado: `GTM-5Z8QFW5B`
 - Domínio canônico atualizado: `https://gabrielgadelhacantor.com/`
 - Código inserido no `<head>` e o `noscript` inserido logo após a abertura do `<body>`.
+
+## Correção de foto aplicada
+
+- Substituí a foto da seção `#sobre` para usar a imagem correta enviada pelo cliente.
+- Novo arquivo: `/assets/images/casamento-palco-correto.png`
+- Referência no `index.html`: `/assets/images/casamento-palco-correto.png`
