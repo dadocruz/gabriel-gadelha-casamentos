@@ -22,8 +22,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./src/styles/main.css?v=20260430-5" />
-  <link rel="stylesheet" href="./src/styles/youtube-inline-gallery.css?v=20260430-5" />
+  <link rel="stylesheet" href="./src/styles/main.css?v=20260430-8" />
+  <link rel="stylesheet" href="./src/styles/youtube-inline-gallery.css?v=20260430-8" />
 
   <style>
     .views-highlight {padding: 30px 30px 26px !important;}
@@ -510,38 +510,18 @@
     }
 
   
-    /* AJUSTE APENAS NO MOBILE — texto em cima e vídeo embaixo; desktop permanece igual */
+    /* MOBILE: mantém só o título acima do vídeo; restante do texto vem depois do vídeo */
     @media (max-width: 800px) {
       .hero .hero-inner {
         grid-template-columns: 1fr !important;
-        gap: 22px !important;
+        gap: 18px !important;
         align-items: start !important;
       }
 
       .hero .hero-text,
       .hero .hero-visual,
+      .hero .hero-mobile-after,
       .hero .hero-photo-wrap {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-      }
-
-      .hero .hero-visual {
-        justify-content: flex-start !important;
-      }
-    }
-
-    /* AJUSTE FINAL MOBILE — mantém desktop igual e força texto acima do vídeo */
-    @media (max-width: 800px) {
-      .hero .hero-inner {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 22px !important;
-        align-items: stretch !important;
-      }
-
-      .hero .hero-text {
-        order: 1 !important;
         width: 100% !important;
         max-width: 100% !important;
         margin: 0 !important;
@@ -549,61 +529,41 @@
 
       .hero .hero-visual {
         order: 2 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
         justify-content: flex-start !important;
       }
 
-      .hero .hero-photo-wrap {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
+      .hero .hero-mobile-after {
+        order: 3 !important;
+      }
+
+      .hero .hero-text .hero-sub,
+      .hero .hero-text .hero-ctas,
+      .hero .hero-text .hero-note,
+      .hero .hero-text .views-highlight,
+      .hero .hero-text .hero-proof {
+        display: none !important;
+      }
+
+      .hero .hero-mobile-after .hero-sub,
+      .hero .hero-mobile-after .hero-ctas,
+      .hero .hero-mobile-after .hero-note,
+      .hero .hero-mobile-after .views-highlight,
+      .hero .hero-mobile-after .hero-proof {
+        display: block !important;
+      }
+
+      .hero .hero-mobile-after .hero-ctas {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 14px !important;
+      }
+
+      .hero .hero-mobile-after .hero-proof {
+        display: flex !important;
       }
     }
 
   </style>
-
-  <link rel="canonical" href="https://gabrielgadelhacantor.com/" />
-  <meta property="og:url" content="https://gabrielgadelhacantor.com/" />
-  <meta name="twitter:site" content="@gabrielgadelhacantor" />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MusicGroup",
-    "name": "Gabriel Gadelha",
-    "url": "https://gabrielgadelhacantor.com/",
-    "genre": "Sertanejo",
-    "sameAs": [
-      "https://www.instagram.com/gabrielgadelhacantor/",
-      "https://www.tiktok.com/@gabrielgadelhacantor",
-      "https://www.youtube.com/@GabrielGadelhaoficial",
-      "https://open.spotify.com/intl-pt/artist/7rn7EcrpdAvTnVqFlOXaBS"
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Gabriel Gadelha",
-    "url": "https://gabrielgadelhacantor.com/",
-    "telephone": "+55 19 99394-1536",
-    "areaServed": [
-      "Campinas",
-      "Região Metropolitana de Campinas",
-      "Interior de São Paulo"
-    ],
-    "priceRange": "$$",
-    "sameAs": [
-      "https://www.instagram.com/gabrielgadelhacantor/",
-      "https://www.tiktok.com/@gabrielgadelhacantor",
-      "https://www.youtube.com/@GabrielGadelhaoficial",
-      "https://open.spotify.com/intl-pt/artist/7rn7EcrpdAvTnVqFlOXaBS"
-    ]
-  }
-  </script>
 
 </head>
 <body>
@@ -855,27 +815,44 @@
 
   <script>
     (() => {
-      const whatsappLinks = Array.from(document.querySelectorAll('a[href*="wa.me/5519993941536"]'));
-      whatsappLinks.forEach((link, index) => {
-        if (!link.dataset.cta) {
-          const label =
-            link.classList.contains('header-cta') ? 'header' :
-            link.closest('.hero') ? 'hero' :
-            link.closest('.site-footer') ? 'footer' :
-            link.classList.contains('floating-whatsapp') ? 'floating' :
-            `whatsapp_${index + 1}`;
-          link.dataset.cta = label;
+      const setupHeroMobileFlow = () => {
+        const hero = document.querySelector('.hero');
+        const heroInner = hero?.querySelector('.hero-inner');
+        const heroText = hero?.querySelector('.hero-text');
+        const heroVisual = hero?.querySelector('.hero-visual');
+        if (!hero || !heroInner || !heroText || !heroVisual) return;
+
+        let heroAfter = heroInner.querySelector('.hero-mobile-after');
+        if (!heroAfter) {
+          heroAfter = document.createElement('div');
+          heroAfter.className = 'hero-mobile-after reveal';
         }
-        link.addEventListener('click', () => {
-          const source = link.dataset.cta || 'unknown';
-          if (typeof window.gtag === 'function') {
-            window.gtag('event', 'whatsapp_click', { source });
+
+        const movableSelectors = ['.hero-sub', '.hero-ctas', '.hero-note', '.views-highlight', '.hero-proof'];
+        const isMobile = window.innerWidth <= 800;
+
+        if (isMobile) {
+          movableSelectors.forEach((selector) => {
+            const el = heroText.querySelector(selector);
+            if (el) heroAfter.appendChild(el);
+          });
+          if (!heroAfter.parentNode) {
+            heroInner.insertBefore(heroAfter, heroVisual.nextSibling);
+          } else if (heroAfter.previousElementSibling !== heroVisual) {
+            heroInner.insertBefore(heroAfter, heroVisual.nextSibling);
           }
-          if (typeof window.fbq === 'function') {
-            window.fbq('track', 'Contact', { source });
-          }
-        }, { passive: true });
-      });
+        } else {
+          movableSelectors.forEach((selector) => {
+            const el = heroAfter.querySelector(selector);
+            if (el) heroText.appendChild(el);
+          });
+          if (heroAfter.parentNode) heroAfter.remove();
+        }
+      };
+
+      window.addEventListener('load', setupHeroMobileFlow);
+      window.addEventListener('resize', setupHeroMobileFlow, { passive: true });
+      setupHeroMobileFlow();
     })();
   </script>
 
