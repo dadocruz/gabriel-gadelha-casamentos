@@ -22,8 +22,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./src/styles/main.css?v=20260430-8" />
-  <link rel="stylesheet" href="./src/styles/youtube-inline-gallery.css?v=20260430-8" />
+  <link rel="stylesheet" href="./src/styles/main.css?v=20260430-9" />
+  <link rel="stylesheet" href="./src/styles/youtube-inline-gallery.css?v=20260430-9" />
 
   <style>
     .views-highlight {padding: 30px 30px 26px !important;}
@@ -544,12 +544,17 @@
         display: none !important;
       }
 
+      .hero .hero-mobile-after .eyebrow,
       .hero .hero-mobile-after .hero-sub,
       .hero .hero-mobile-after .hero-ctas,
       .hero .hero-mobile-after .hero-note,
       .hero .hero-mobile-after .views-highlight,
       .hero .hero-mobile-after .hero-proof {
         display: block !important;
+      }
+
+      .hero .hero-mobile-after .eyebrow {
+        margin: 0 0 18px !important;
       }
 
       .hero .hero-mobile-after .hero-ctas {
@@ -828,7 +833,7 @@
           heroAfter.className = 'hero-mobile-after reveal';
         }
 
-        const movableSelectors = ['.hero-sub', '.hero-ctas', '.hero-note', '.views-highlight', '.hero-proof'];
+        const movableSelectors = ['.eyebrow', '.hero-sub', '.hero-ctas', '.hero-note', '.views-highlight', '.hero-proof'];
         const isMobile = window.innerWidth <= 800;
 
         if (isMobile) {
