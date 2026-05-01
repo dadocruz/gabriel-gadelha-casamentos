@@ -531,6 +531,37 @@
       }
     }
 
+    /* AJUSTE FINAL MOBILE — mantém desktop igual e força texto acima do vídeo */
+    @media (max-width: 800px) {
+      .hero .hero-inner {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 22px !important;
+        align-items: stretch !important;
+      }
+
+      .hero .hero-text {
+        order: 1 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+      }
+
+      .hero .hero-visual {
+        order: 2 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        justify-content: flex-start !important;
+      }
+
+      .hero .hero-photo-wrap {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+      }
+    }
+
   </style>
 
   <link rel="canonical" href="https://gabrielgadelhacantor.com/" />
