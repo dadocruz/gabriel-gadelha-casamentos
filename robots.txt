@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gabrielgadelha.com.br/sitemap.xml
+Sitemap: https://gabrielgadelhacantor.com/sitemap.xml

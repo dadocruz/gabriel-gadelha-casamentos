@@ -22,8 +22,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./src/styles/main.css?v=20260430-5" />
-  <link rel="stylesheet" href="./src/styles/youtube-inline-gallery.css?v=20260430-5" />
+  <link rel="stylesheet" href="./src/styles/main.css?v=20260430-4" />
+  <link rel="stylesheet" href="./src/styles/youtube-inline-gallery.css?v=20260430-4" />
 
   <style>
     .views-highlight {padding: 30px 30px 26px !important;}
@@ -369,147 +369,44 @@
       }
     }
 
-  
-    /* AJUSTE FINAL MOBILE — cards de artistas em 1080x1350 (4:5) com cabeças preservadas */
-    @media (max-width: 800px) {
-      html, body {
-        overflow-x: hidden !important;
-      }
-
-      .autoridade {
-        overflow: hidden !important;
-      }
-
-      .autoridade .container {
-        width: calc(100vw - 12px) !important;
-        max-width: calc(100vw - 12px) !important;
-        margin: 0 auto !important;
-        padding: 0 !important;
-        box-sizing: border-box !important;
-      }
-
-      .autoridade-mosaic.authority-plus-grid,
-      .autoridade .authority-plus-grid {
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-        gap: 10px !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 auto !important;
-        padding: 0 !important;
-        justify-items: stretch !important;
-        align-items: stretch !important;
-      }
-
-      .autoridade-mosaic.authority-plus-grid > *,
-      .autoridade .authority-plus-grid > * {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-        margin: 0 !important;
-        justify-self: stretch !important;
-        transform: none !important;
-      }
-
-      .authority-plus-card,
-      .authority-plus-card--hero,
-      .authority-plus-card--wide,
-      .authority-plus-card--standard {
-        display: block !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-        margin: 0 !important;
-        border-radius: 16px !important;
-        overflow: hidden !important;
-        box-sizing: border-box !important;
-      }
-
-      .authority-plus-media {
-        width: 100% !important;
-        max-width: 100% !important;
-        aspect-ratio: 1080 / 1350 !important; /* 4:5 */
-        border-radius: 16px !important;
-        overflow: hidden !important;
-        background: #0d0d0d !important;
-      }
-
-      .authority-plus-media img {
-        width: 100% !important;
-        height: 100% !important;
-        display: block !important;
-        object-fit: cover !important;
-        transform: none !important;
-      }
-
-      /* enquadramento individual para não cortar a cabeça */
-      .autoridade-mosaic.authority-plus-grid > *:nth-child(1) .authority-plus-media img,
-      .autoridade .authority-plus-grid > *:nth-child(1) .authority-plus-media img {
-        object-position: center 8% !important; /* Marília */
-      }
-
-      .autoridade-mosaic.authority-plus-grid > *:nth-child(2) .authority-plus-media img,
-      .autoridade .authority-plus-grid > *:nth-child(2) .authority-plus-media img {
-        object-position: center 10% !important; /* Wesley */
-      }
-
-      .autoridade-mosaic.authority-plus-grid > *:nth-child(3) .authority-plus-media img,
-      .autoridade .authority-plus-grid > *:nth-child(3) .authority-plus-media img {
-        object-position: center 9% !important; /* Henrique & Juliano */
-      }
-
-      .autoridade-mosaic.authority-plus-grid > *:nth-child(4) .authority-plus-media img,
-      .autoridade .authority-plus-grid > *:nth-child(4) .authority-plus-media img {
-        object-position: center 20% !important; /* Guilherme & Benuto */
-      }
-
-      .autoridade-mosaic.authority-plus-grid > *:nth-child(5) .authority-plus-media img,
-      .autoridade .authority-plus-grid > *:nth-child(5) .authority-plus-media img {
-        object-position: center 18% !important; /* Cleyton & Romário */
-      }
-
-      .authority-plus-caption {
-        left: 12px !important;
-        right: 12px !important;
-        bottom: 12px !important;
-      }
-
-      .authority-plus-kicker {
-        font-size: 9px !important;
-      }
-
-      .authority-plus-name {
-        font-size: 1.1rem !important;
-        line-height: 1.04 !important;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .autoridade .container {
-        width: calc(100vw - 10px) !important;
-        max-width: calc(100vw - 10px) !important;
-      }
-
-      .authority-plus-card,
-      .authority-plus-card--hero,
-      .authority-plus-card--wide,
-      .authority-plus-card--standard,
-      .authority-plus-media {
-        border-radius: 14px !important;
-      }
-
-      .authority-plus-caption {
-        left: 10px !important;
-        right: 10px !important;
-        bottom: 10px !important;
-      }
-
-      .authority-plus-name {
-        font-size: 1rem !important;
-      }
-    }
-
   </style>
+
+  <link rel="canonical" href="https://gabrielgadelhacantor.com/" />
+  <meta property="og:url" content="https://gabrielgadelhacantor.com/" />
+  <meta name="twitter:site" content="@gabrielgadelhacantor" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicGroup",
+    "name": "Gabriel Gadelha",
+    "url": "https://gabrielgadelhacantor.com/",
+    "genre": "Sertanejo",
+    "sameAs": [
+      "https://www.instagram.com/gabrielgadelhacantor/",
+      "https://www.tiktok.com/@gabrielgadelhacantor",
+      "https://www.youtube.com/@GabrielGadelhaoficial",
+      "https://open.spotify.com/intl-pt/artist/7rn7EcrpdAvTnVqFlOXaBS"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Gabriel Gadelha",
+    "url": "https://gabrielgadelhacantor.com/",
+    "telephone": "+55 19 99394-1536",
+    "areaServed": ["Campinas", "Região Metropolitana de Campinas", "Interior de São Paulo"],
+    "priceRange": "$$",
+    "sameAs": [
+      "https://www.instagram.com/gabrielgadelhacantor/",
+      "https://www.tiktok.com/@gabrielgadelhacantor",
+      "https://www.youtube.com/@GabrielGadelhaoficial",
+      "https://open.spotify.com/intl-pt/artist/7rn7EcrpdAvTnVqFlOXaBS"
+    ]
+  }
+  </script>
 
 </head>
 <body>
@@ -758,4 +655,30 @@
       }
     })();
   </script>
+
+  <script>
+    (() => {
+      const links = Array.from(document.querySelectorAll('a[href*="wa.me/5519993941536"]'));
+      links.forEach((link, index) => {
+        if (!link.dataset.cta) {
+          const label = link.classList.contains('header-cta')
+            ? 'header'
+            : link.closest('.hero')
+            ? 'hero'
+            : link.closest('.site-footer')
+            ? 'footer'
+            : link.classList.contains('floating-whatsapp')
+            ? 'floating'
+            : `whatsapp_${index + 1}`;
+          link.dataset.cta = label;
+        }
+        link.addEventListener('click', () => {
+          const source = link.dataset.cta || 'unknown';
+          if (typeof window.gtag === 'function') window.gtag('event', 'whatsapp_click', { source });
+          if (typeof window.fbq === 'function') window.fbq('track', 'Contact', { source });
+        }, { passive: true });
+      });
+    })();
+  </script>
+
 </body></html>
