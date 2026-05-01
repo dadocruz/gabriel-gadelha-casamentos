@@ -22,8 +22,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./src/styles/main.css?v=20260430-9" />
-  <link rel="stylesheet" href="./src/styles/youtube-inline-gallery.css?v=20260430-9" />
+  <link rel="stylesheet" href="./src/styles/main.css?v=20260430-10" />
+  <link rel="stylesheet" href="./src/styles/youtube-inline-gallery.css?v=20260430-10" />
 
   <style>
     .views-highlight {padding: 30px 30px 26px !important;}
@@ -518,6 +518,66 @@
         align-items: start !important;
       }
 
+      .hero {
+        min-height: auto !important;
+        padding-top: 96px !important;
+        padding-bottom: 36px !important;
+      }
+
+      .hero .hero-inner {
+        gap: 10px !important;
+      }
+
+      .hero .hero-text {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+      }
+
+      .hero .hero-title {
+        margin: 0 0 10px !important;
+      }
+
+      .hero .title-line {
+        margin: 0 !important;
+      }
+
+      .hero .hero-visual {
+        margin-top: 2px !important;
+      }
+
+      .hero .hero-photo-wrap {
+        aspect-ratio: 4 / 5.15 !important;
+      }
+
+      .hero .hero-mobile-after {
+        margin-top: 14px !important;
+      }
+
+      .hero .hero-mobile-after .eyebrow {
+        margin: 6px 0 16px !important;
+      }
+
+      .hero .hero-mobile-after .hero-sub {
+        margin: 0 0 18px !important;
+      }
+
+      .hero .hero-mobile-after .hero-ctas {
+        margin-bottom: 14px !important;
+      }
+
+      .hero .hero-mobile-after .hero-note {
+        margin: 0 0 18px !important;
+      }
+
+      .hero .hero-mobile-after .views-highlight {
+        margin-top: 0 !important;
+        margin-bottom: 18px !important;
+      }
+
+      .hero .hero-mobile-after .hero-proof {
+        padding-top: 18px !important;
+      }
+
       .hero .hero-text,
       .hero .hero-visual,
       .hero .hero-mobile-after,
@@ -565,6 +625,26 @@
 
       .hero .hero-mobile-after .hero-proof {
         display: flex !important;
+      }
+    }
+
+
+    @media (max-width: 560px) {
+      .hero {
+        padding-top: 90px !important;
+        padding-bottom: 30px !important;
+      }
+
+      .hero .hero-title {
+        margin-bottom: 8px !important;
+      }
+
+      .hero .hero-mobile-after {
+        margin-top: 12px !important;
+      }
+
+      .hero .hero-mobile-after .eyebrow {
+        margin: 8px 0 14px !important;
       }
     }
 
