@@ -707,6 +707,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: #000 !important;
     }
     .hero-video.is-playing .hero-video-placeholder { display: none !important; }
+
+    .hero-video { cursor: pointer !important; }
+    .hero-play-overlay {
+      position: absolute !important;
+      left: 50% !important;
+      top: 50% !important;
+      width: 76px !important;
+      height: 76px !important;
+      border-radius: 999px !important;
+      transform: translate(-50%, -50%) !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      background: rgba(0, 0, 0, .58) !important;
+      border: 1px solid rgba(255,255,255,.35) !important;
+      box-shadow: 0 18px 45px rgba(0,0,0,.45) !important;
+      color: #fff !important;
+      pointer-events: none !important;
+      z-index: 3 !important;
+    }
+    .hero-play-overlay svg {
+      width: 36px !important;
+      height: 36px !important;
+      margin-left: 4px !important;
+      fill: currentColor !important;
+    }
+    .hero-video.is-playing .hero-play-overlay { display: none !important; }
     .hero-video iframe {
       width: 100% !important;
       height: 100% !important;
@@ -747,7 +774,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
 }
 </script>
-<link rel="preload" as="image" href="/assets/images/casamento-senhores.webp" fetchpriority="high" type="image/webp">
+<link rel="preload" as="image" href="/assets/images/gabriel-hero.webp" fetchpriority="high" type="image/webp">
 <link rel="canonical" href="https://gabrielgadelhacantor.com/" />
 </head>
 <body>
@@ -815,21 +842,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="hero-photo-wrap">
         <div class="hero-frame"></div>
 
-        <button class="hero-sound-btn" id="heroSoundBtn" type="button">
-          ASSISTIR COM ÁUDIO
-        </button>
 
-        <div class="hero-video" id="heroVideoWrap">
+        <div class="hero-video" id="heroVideoWrap" role="button" tabindex="0" aria-label="Reproduzir vídeo de Gabriel Gadelha">
           <img
             class="hero-video-placeholder"
-            src="/assets/images/casamento-senhores.webp"
-            alt="Gabriel Gadelha ao vivo em show para casamento"
+            src="/assets/images/casamento-palco-correto.webp"
+            alt="Gabriel Gadelha ao vivo em show"
             width="840"
             height="1456"
             loading="eager"
             decoding="async"
             fetchpriority="high"
           >
+          <span class="hero-play-overlay" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
+          </span>
         </div>
       </div>
     </div>
@@ -837,7 +864,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
   <section class="section experiencia" id="experiencia"><div class="container"><div class="shorts-grid yt-showcase-grid"><article class="short-card yt-showcase-card reveal"><button class="yt-showcase-trigger" type="button" data-youtube-id="b0_z5yUthmI" data-video-title="Vídeo 1" aria-label="Assistir vídeo 1"><img class="yt-showcase-thumb" src="https://i.ytimg.com/vi/b0_z5yUthmI/hqdefault.jpg" alt="Capa do vídeo 1 de Gabriel Gadelha" loading="lazy" /><span class="yt-showcase-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></button></article><article class="short-card yt-showcase-card reveal"><button class="yt-showcase-trigger" type="button" data-youtube-id="b_WnRmVPS00" data-video-title="Vídeo 2" aria-label="Assistir vídeo 2"><img class="yt-showcase-thumb" src="https://i.ytimg.com/vi/b_WnRmVPS00/hqdefault.jpg" alt="Capa do vídeo 2 de Gabriel Gadelha" loading="lazy" /><span class="yt-showcase-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></button></article><article class="short-card yt-showcase-card reveal"><button class="yt-showcase-trigger" type="button" data-youtube-id="p3lRNXTmpew" data-video-title="Vídeo 3" aria-label="Assistir vídeo 3"><img class="yt-showcase-thumb" src="https://i.ytimg.com/vi/p3lRNXTmpew/hqdefault.jpg" alt="Capa do vídeo 3 de Gabriel Gadelha" loading="lazy" /><span class="yt-showcase-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></button></article><article class="short-card yt-showcase-card reveal"><button class="yt-showcase-trigger" type="button" data-youtube-id="nskW2NeJgp0" data-video-title="Vídeo 4" aria-label="Assistir vídeo 4"><img class="yt-showcase-thumb" src="https://i.ytimg.com/vi/nskW2NeJgp0/hqdefault.jpg" alt="Capa do vídeo 4 de Gabriel Gadelha" loading="lazy" /><span class="yt-showcase-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></button></article><article class="short-card yt-showcase-card reveal"><button class="yt-showcase-trigger" type="button" data-youtube-id="koCvq_mlAoo" data-video-title="Vídeo 5" aria-label="Assistir vídeo 5"><img class="yt-showcase-thumb" src="https://i.ytimg.com/vi/koCvq_mlAoo/hqdefault.jpg" alt="Capa do vídeo 5 de Gabriel Gadelha" loading="lazy" /><span class="yt-showcase-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></button></article><article class="short-card yt-showcase-card reveal"><button class="yt-showcase-trigger" type="button" data-youtube-id="ohLu_Dm8k5A" data-video-title="Vídeo 6" aria-label="Assistir vídeo 6"><img class="yt-showcase-thumb" src="https://i.ytimg.com/vi/ohLu_Dm8k5A/hqdefault.jpg" alt="Capa do vídeo 6 de Gabriel Gadelha" loading="lazy" /><span class="yt-showcase-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></button></article></div></div></section>
-  <section class="section sobre" id="sobre"><div class="container sobre-grid"><div class="sobre-img sobre-img--single reveal"><div class="sobre-img-main sobre-img-main--single"><img src="/assets/images/casamento-senhores.webp" alt="Gabriel Gadelha cantando em casamento" width="840" height="1456" loading="lazy" decoding="async"></div></div><div class="sobre-text reveal reveal-delay">
+  <section class="section sobre" id="sobre"><div class="container sobre-grid"><div class="sobre-img sobre-img--single reveal"><div class="sobre-img-main sobre-img-main--single"><img src="/assets/images/gabriel-hero.webp" alt="Gabriel Gadelha com violão" width="900" height="600" loading="lazy" decoding="async"></div></div><div class="sobre-text reveal reveal-delay">
 <h2 class="section-title"><span class="italic serif">Gabriel Gadelha é cantor</span><br /><span class="display">sertanejo para casamentos e eventos especiais</span></h2><div class="sobre-copy"><p>Com mais de <strong>10 anos de palco</strong>, Gabriel Gadelha construiu sua trajetória unindo presença artística, repertório forte e entrega ao vivo. Sua proposta para casamentos é criar uma apresentação elegante, emocionante e memorável para noivos e convidados.</p><p>Além da experiência em grandes palcos e rodeios, Gabriel leva para os casamentos o que realmente importa: leitura do momento, escolha certa de repertório, sensibilidade para os momentos emocionais e energia para transformar a festa em uma lembrança inesquecível.</p><p>Se você procura um <strong>cantor para casamento em Campinas</strong>, região metropolitana ou interior de São Paulo, com proposta premium e foco em experiência, essa apresentação foi pensada para atender exatamente esse perfil de evento.</p></div>
 </div></div></section>
   <section class="section autoridade"><div class="container"><header class="section-head centered reveal">
@@ -900,10 +927,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       });
 
       const heroVideoId = '3U183bGOk74';
-      const heroSoundBtn = document.getElementById('heroSoundBtn');
       const heroVideoWrap = document.getElementById('heroVideoWrap') || document.querySelector('.hero-video');
       const heroPlaceholderHtml = heroVideoWrap ? heroVideoWrap.innerHTML : '';
-      let heroSoundOn = false;
+      let heroVideoOn = false;
 
       const buildHeroSrc = (withSound = true) => {
         const mute = withSound ? 0 : 1;
@@ -913,7 +939,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       const setHeroState = (withSound) => {
         if (!heroVideoWrap) return;
-        heroSoundOn = withSound;
+        heroVideoOn = withSound;
 
         if (withSound) {
           heroVideoWrap.classList.add('is-playing');
@@ -933,10 +959,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           heroVideoWrap.innerHTML = heroPlaceholderHtml;
         }
 
-        if (heroSoundBtn) {
-          heroSoundBtn.classList.toggle('is-active', withSound);
-          heroSoundBtn.textContent = withSound ? 'DESATIVAR ÁUDIO' : 'ASSISTIR COM ÁUDIO';
-        }
       };
 
       const showcaseCards = Array.from(document.querySelectorAll('.yt-showcase-card'));
@@ -964,11 +986,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         if (!keepHero) setHeroState(false);
       };
 
-      heroSoundBtn?.addEventListener('click', (event) => {
+      heroVideoWrap?.addEventListener('click', (event) => {
+        if (heroVideoOn) return;
         event.preventDefault();
         event.stopPropagation();
         stopOtherPlayers(null, true);
-        setHeroState(!heroSoundOn);
+        setHeroState(true);
+      });
+
+      heroVideoWrap?.addEventListener('keydown', (event) => {
+        if (heroVideoOn) return;
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        stopOtherPlayers(null, true);
+        setHeroState(true);
       });
 
       document.addEventListener('click', (event) => {
