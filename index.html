@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5Z8QFW5B');</script>
+<!-- End Google Tag Manager -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0a0a0a" />
@@ -9,8 +17,6 @@
   <meta name="description" content="Contrate Gabriel Gadelha para casamento em Campinas, interior de SP e outras regiões. Show sertanejo ao vivo com formatos pocket, banda completa e premium. Peça orçamento pelo WhatsApp." />
   <meta name="keywords" content="cantor para casamento, show para casamento, show sertanejo para casamento, banda para casamento, cantor sertanejo para casamento em Campinas, orçamento show casamento" />
   <meta name="author" content="Gabriel Gadelha" />
-  <link rel="preload" as="image" href="/assets/images/casamento-palco-correto.webp" fetchpriority="high">
-<link rel="canonical" href="https://gabrielgadelhacantor.com/" />
   <meta property="og:title" content="Gabriel Gadelha | Cantor para Casamento em Campinas e Região" />
   <meta property="og:description" content="Show sertanejo ao vivo para casamentos com proposta premium, repertório envolvente e formatos pocket, banda completa e premium." />
   <meta property="og:image" content="./assets/images/gabriel-hero.webp" />
@@ -23,11 +29,6 @@
   <link rel="icon" type="image/webp" href="./assets/images/gabriel-studio-02.webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-<link rel="dns-prefetch" href="https://www.google-analytics.com">
-<link rel="preconnect" href="https://i.ytimg.com" crossorigin>
-<link rel="dns-prefetch" href="https://i.ytimg.com">
-<link rel="preconnect" href="https://www.youtube-nocookie.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./src/styles/main.css?v=20260430-10" />
   <link rel="stylesheet" href="./src/styles/youtube-inline-gallery.css?v=20260430-10" />
@@ -696,45 +697,66 @@
       display: none !important;
     }
 
+    /* PERF: hero sem iframe inicial — usa imagem leve e carrega YouTube só no clique */
+    .hero-video-placeholder {
+      width: 100% !important;
+      height: 100% !important;
+      display: block !important;
+      object-fit: cover !important;
+      object-position: center center !important;
+      background: #000 !important;
+    }
+    .hero-video.is-playing .hero-video-placeholder { display: none !important; }
+    .hero-video iframe {
+      width: 100% !important;
+      height: 100% !important;
+      border: 0 !important;
+      display: block !important;
+      background: #000 !important;
+    }
+
   </style>
 
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Gabriel Gadelha",
-    "jobTitle": "Cantor sertanejo",
-    "description": "Cantor sertanejo para casamentos, recepções e eventos no interior de São Paulo.",
-    "url": "https://gabrielgadelhacantor.com/",
-    "sameAs": [
-      "https://www.instagram.com/gabrielgadelhacantor/",
-      "https://www.tiktok.com/@gabrielgadelhacantor",
-      "https://www.youtube.com/@GabrielGadelhaoficial",
-      "https://open.spotify.com/intl-pt/artist/7rn7EcrpdAvTnVqFlOXaBS"
-    ],
-    "areaServed": ["Campinas", "Interior de São Paulo", "São Paulo"],
-    "makesOffer": [
-      { "@type": "Offer", "name": "Show Pocket para casamento" },
-      { "@type": "Offer", "name": "Show Banda Completa para casamento" },
-      { "@type": "Offer", "name": "Show Premium para casamento" }
-    ]
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicGroup",
+  "name": "Gabriel Gadelha",
+  "url": "https://gabrielgadelhacantor.com/",
+  "image": "https://gabrielgadelhacantor.com/assets/images/gabriel-hero.webp",
+  "genre": "Sertanejo",
+  "description": "Cantor sertanejo para casamentos. Mais de 10 anos de palco. Atendimento para Campinas, interior de SP e região.",
+  "sameAs": [
+    "https://www.instagram.com/gabrielgadelhacantor",
+    "https://www.youtube.com/channel/UCoLNV7pVR89EvqqOMdClcWg",
+    "https://www.tiktok.com/@gabrielgadelhacantor",
+    "https://open.spotify.com/intl-pt/artist/7rn7EcrpdAvTnVqFlOXaBS"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+55-19-99394-1536",
+    "contactType": "Customer Service",
+    "areaServed": "BR",
+    "availableLanguage": "Portuguese"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Campinas",
+    "addressRegion": "SP",
+    "addressCountry": "BR"
   }
-  </script>
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5Z8QFW5B');</script>
-<!-- End Google Tag Manager -->
+}
+</script>
+<link rel="preload" as="image" href="/assets/images/casamento-senhores.webp" fetchpriority="high" type="image/webp">
+<link rel="canonical" href="https://gabrielgadelhacantor.com/" />
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
+<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Z8QFW5B"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-  <header class="site-header" id="siteHeader"><div class="container header-inner"><a href="#top" class="brand" aria-label="Gabriel Gadelha — início"><span class="brand-mark">GG</span><span class="brand-name">Gabriel Gadelha</span></a><nav class="nav" aria-label="Principal"><a href="#experiencia">Vídeos</a><a href="#sobre">Sobre</a><a href="#pacotes">Pacotes</a><a href="#faq">FAQ</a></nav><a class="btn btn-ghost header-cta btn-whatsapp" href="https://wa.me/5519993941536?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20or%C3%A7amento%20para%20show%20de%20casamento%20com%20Gabriel%20Gadelha.%20Data%20do%20evento%3A%20___%20%2F%20Cidade%3A%20___%20%2F%20Local%3A%20___%20%2F%20Convidados%3A%20___" target="_blank" rel="noopener" data-pacote="header"><svg class="icon-wa" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a9.93 9.93 0 0 0-8.58 14.9L2 22l5.23-1.37A9.93 9.93 0 1 0 12.04 2m0 1.82a8.11 8.11 0 0 1 6.95 12.36l-.21.33.8 2.92-3-.78-.32.19a8.1 8.1 0 0 1-12.33-6.93a8.12 8.12 0 0 1 8.11-8.09m-4.4 4.37c-.2 0-.52.07-.8.38s-1.05 1.02-1.05 2.5s1.07 2.89 1.22 3.1c.15.2 2.07 3.31 5.12 4.51c2.54 1 3.05.8 3.6.75c.56-.05 1.78-.73 2.03-1.43c.25-.7.25-1.3.17-1.43c-.07-.12-.27-.2-.57-.35c-.3-.15-1.78-.88-2.05-.98c-.27-.1-.48-.15-.68.15c-.2.3-.78.98-.95 1.18c-.17.2-.35.22-.65.08c-.3-.15-1.26-.46-2.4-1.48c-.89-.79-1.49-1.77-1.66-2.07c-.17-.3-.02-.46.13-.61c.13-.13.3-.35.44-.52c.15-.18.2-.3.3-.5c.1-.2.05-.37-.03-.52c-.07-.15-.68-1.64-.94-2.24c-.22-.5-.45-.44-.62-.45z"/></svg><span>Orçamento</span></a><button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button></div><div class="mobile-menu" id="mobileMenu" aria-hidden="true"><a href="#experiencia">Vídeos</a><a href="#sobre">Sobre</a><a href="#pacotes">Pacotes</a><a href="#faq">FAQ</a><a class="btn btn-primary btn-whatsapp" href="https://wa.me/5519993941536?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20or%C3%A7amento%20para%20show%20de%20casamento%20com%20Gabriel%20Gadelha.%20Data%20do%20evento%3A%20___%20%2F%20Cidade%3A%20___%20%2F%20Local%3A%20___%20%2F%20Convidados%3A%20___" target="_blank" rel="noopener" data-pacote="menu-mobile">Pedir Orçamento</a></div></header>
+
+  <header class="site-header" id="siteHeader"><div class="container header-inner"><a href="#top" class="brand" aria-label="Gabriel Gadelha — início"><span class="brand-mark">GG</span><span class="brand-name">Gabriel Gadelha</span></a><nav class="nav" aria-label="Principal"><a href="#experiencia">Vídeos</a><a href="#sobre">Sobre</a><a href="#pacotes">Pacotes</a><a href="#faq">FAQ</a></nav><a class="btn btn-ghost header-cta btn-whatsapp" data-pacote="header" href="https://wa.me/5519993941536?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20or%C3%A7amento%20para%20show%20de%20casamento%20com%20Gabriel%20Gadelha.%20Data%20do%20evento%3A%20___%20%2F%20Cidade%3A%20___%20%2F%20Local%3A%20___%20%2F%20Convidados%3A%20___" target="_blank" rel="noopener"><svg class="icon-wa" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a9.93 9.93 0 0 0-8.58 14.9L2 22l5.23-1.37A9.93 9.93 0 1 0 12.04 2m0 1.82a8.11 8.11 0 0 1 6.95 12.36l-.21.33.8 2.92-3-.78-.32.19a8.1 8.1 0 0 1-12.33-6.93a8.12 8.12 0 0 1 8.11-8.09m-4.4 4.37c-.2 0-.52.07-.8.38s-1.05 1.02-1.05 2.5s1.07 2.89 1.22 3.1c.15.2 2.07 3.31 5.12 4.51c2.54 1 3.05.8 3.6.75c.56-.05 1.78-.73 2.03-1.43c.25-.7.25-1.3.17-1.43c-.07-.12-.27-.2-.57-.35c-.3-.15-1.78-.88-2.05-.98c-.27-.1-.48-.15-.68.15c-.2.3-.78.98-.95 1.18c-.17.2-.35.22-.65.08c-.3-.15-1.26-.46-2.4-1.48c-.89-.79-1.49-1.77-1.66-2.07c-.17-.3-.02-.46.13-.61c.13-.13.3-.35.44-.52c.15-.18.2-.3.3-.5c.1-.2.05-.37-.03-.52c-.07-.15-.68-1.64-.94-2.24c-.22-.5-.45-.44-.62-.45z"/></svg><span>Orçamento</span></a><button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button></div><div class="mobile-menu" id="mobileMenu" aria-hidden="true"><a href="#experiencia">Vídeos</a><a href="#sobre">Sobre</a><a href="#pacotes">Pacotes</a><a href="#faq">FAQ</a><a class="btn btn-primary btn-whatsapp" data-pacote="header-mobile" href="https://wa.me/5519993941536?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20or%C3%A7amento%20para%20show%20de%20casamento%20com%20Gabriel%20Gadelha.%20Data%20do%20evento%3A%20___%20%2F%20Cidade%3A%20___%20%2F%20Local%3A%20___%20%2F%20Convidados%3A%20___" target="_blank" rel="noopener">Pedir Orçamento</a></div></header>
   <section class="hero" id="top">
   <div class="hero-bg" aria-hidden="true">
     <div class="hero-grain"></div>
@@ -763,10 +785,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="hero-ctas">
         <a
           class="btn btn-primary btn-whatsapp"
+          data-pacote="hero"
           href="https://wa.me/5519993941536?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20or%C3%A7amento%20para%20show%20de%20casamento%20com%20Gabriel%20Gadelha.%20Data%20do%20evento%3A%20___%20%2F%20Cidade%3A%20___%20%2F%20Local%3A%20___%20%2F%20Convidados%3A%20___"
           target="_blank"
           rel="noopener"
-         data-pacote="geral">
+        >
           <svg class="icon-wa" viewBox="0 0 24 24" aria-hidden="true">
             <path fill="currentColor" d="M12.04 2a9.93 9.93 0 0 0-8.58 14.9L2 22l5.23-1.37A9.93 9.93 0 1 0 12.04 2m0 1.82a8.11 8.11 0 0 1 6.95 12.36l-.21.33.8 2.92-3-.78-.32.19a8.1 8.1 0 0 1-12.33-6.93a8.12 8.12 0 0 1 8.11-8.09m-4.4 4.37c-.2 0-.52.07-.8.38s-1.05 1.02-1.05 2.5s1.07 2.89 1.22 3.1c.15.2 2.07 3.31 5.12 4.51c2.54 1 3.05.8 3.6.75c.56-.05 1.78-.73 2.03-1.43c.25-.7.25-1.3.17-1.43c-.07-.12-.27-.2-.57-.35c-.3-.15-1.78-.88-2.05-.98c-.27-.1-.48-.15-.68.15c-.2.3-.78.98-.95 1.18c-.17.2-.35.22-.65.08c-.3-.15-1.26-.46-2.4-1.48c-.89-.79-1.49-1.77-1.66-2.07c-.17-.3-.02-.46.13-.61c.13-.13.3-.35.44-.52c.15-.18.2-.3.3-.5c.1-.2.05-.37-.03-.52c-.07-.15-.68-1.64-.94-2.24c-.22-.5-.45-.44-.62-.45z"/>
           </svg>
@@ -796,15 +819,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           ASSISTIR COM ÁUDIO
         </button>
 
-        <div class="hero-video">
-          <iframe
-            id="heroShortFrame"
-            src="https://www.youtube-nocookie.com/embed/3U183bGOk74?autoplay=1&mute=1&loop=1&playlist=3U183bGOk74&controls=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1&vq=hd1080"
-            title="Gabriel Gadelha short"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen>
-          </iframe>
+        <div class="hero-video" id="heroVideoWrap">
+          <img
+            class="hero-video-placeholder"
+            src="/assets/images/casamento-senhores.webp"
+            alt="Gabriel Gadelha ao vivo em show para casamento"
+            width="840"
+            height="1456"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          >
         </div>
       </div>
     </div>
@@ -812,20 +837,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
   <section class="section experiencia" id="experiencia"><div class="container"><div class="shorts-grid yt-showcase-grid"><article class="short-card yt-showcase-card reveal"><button class="yt-showcase-trigger" type="button" data-youtube-id="b0_z5yUthmI" data-video-title="Vídeo 1" aria-label="Assistir vídeo 1"><img class="yt-showcase-thumb" src="https://i.ytimg.com/vi/b0_z5yUthmI/hqdefault.jpg" alt="Capa do vídeo 1 de Gabriel Gadelha" loading="lazy" /><span class="yt-showcase-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></button></article><article class="short-card yt-showcase-card reveal"><button class="yt-showcase-trigger" type="button" data-youtube-id="b_WnRmVPS00" data-video-title="Vídeo 2" aria-label="Assistir vídeo 2"><img class="yt-showcase-thumb" src="https://i.ytimg.com/vi/b_WnRmVPS00/hqdefault.jpg" alt="Capa do vídeo 2 de Gabriel Gadelha" loading="lazy" /><span class="yt-showcase-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></button></article><article class="short-card yt-showcase-card reveal"><button class="yt-showcase-trigger" type="button" data-youtube-id="p3lRNXTmpew" data-video-title="Vídeo 3" aria-label="Assistir vídeo 3"><img class="yt-showcase-thumb" src="https://i.ytimg.com/vi/p3lRNXTmpew/hqdefault.jpg" alt="Capa do vídeo 3 de Gabriel Gadelha" loading="lazy" /><span class="yt-showcase-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></button></article><article class="short-card yt-showcase-card reveal"><button class="yt-showcase-trigger" type="button" data-youtube-id="nskW2NeJgp0" data-video-title="Vídeo 4" aria-label="Assistir vídeo 4"><img class="yt-showcase-thumb" src="https://i.ytimg.com/vi/nskW2NeJgp0/hqdefault.jpg" alt="Capa do vídeo 4 de Gabriel Gadelha" loading="lazy" /><span class="yt-showcase-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></button></article><article class="short-card yt-showcase-card reveal"><button class="yt-showcase-trigger" type="button" data-youtube-id="koCvq_mlAoo" data-video-title="Vídeo 5" aria-label="Assistir vídeo 5"><img class="yt-showcase-thumb" src="https://i.ytimg.com/vi/koCvq_mlAoo/hqdefault.jpg" alt="Capa do vídeo 5 de Gabriel Gadelha" loading="lazy" /><span class="yt-showcase-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></button></article><article class="short-card yt-showcase-card reveal"><button class="yt-showcase-trigger" type="button" data-youtube-id="ohLu_Dm8k5A" data-video-title="Vídeo 6" aria-label="Assistir vídeo 6"><img class="yt-showcase-thumb" src="https://i.ytimg.com/vi/ohLu_Dm8k5A/hqdefault.jpg" alt="Capa do vídeo 6 de Gabriel Gadelha" loading="lazy" /><span class="yt-showcase-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></button></article></div></div></section>
-  <section class="section sobre" id="sobre"><div class="container sobre-grid"><div class="sobre-img sobre-img--single reveal"><div class="sobre-img-main sobre-img-main--single"><img src="/assets/images/casamento-palco-correto.webp" alt="Gabriel Gadelha cantando em casamento" fetchpriority="high" decoding="async"></div></div><div class="sobre-text reveal reveal-delay">
+  <section class="section sobre" id="sobre"><div class="container sobre-grid"><div class="sobre-img sobre-img--single reveal"><div class="sobre-img-main sobre-img-main--single"><img src="/assets/images/casamento-senhores.webp" alt="Gabriel Gadelha cantando em casamento" width="840" height="1456" loading="lazy" decoding="async"></div></div><div class="sobre-text reveal reveal-delay">
 <h2 class="section-title"><span class="italic serif">Gabriel Gadelha é cantor</span><br /><span class="display">sertanejo para casamentos e eventos especiais</span></h2><div class="sobre-copy"><p>Com mais de <strong>10 anos de palco</strong>, Gabriel Gadelha construiu sua trajetória unindo presença artística, repertório forte e entrega ao vivo. Sua proposta para casamentos é criar uma apresentação elegante, emocionante e memorável para noivos e convidados.</p><p>Além da experiência em grandes palcos e rodeios, Gabriel leva para os casamentos o que realmente importa: leitura do momento, escolha certa de repertório, sensibilidade para os momentos emocionais e energia para transformar a festa em uma lembrança inesquecível.</p><p>Se você procura um <strong>cantor para casamento em Campinas</strong>, região metropolitana ou interior de São Paulo, com proposta premium e foco em experiência, essa apresentação foi pensada para atender exatamente esse perfil de evento.</p></div>
 </div></div></section>
   <section class="section autoridade"><div class="container"><header class="section-head centered reveal">
 <h2 class="section-title"><span class="italic serif">Palco compartilhado com</span><br /><span class="display">nomes fortes do sertanejo</span></h2></header><div class="autoridade-mosaic authority-plus-grid"><figure class="authority-plus-card authority-plus-card--standard reveal is-visible"><div class="authority-plus-media"><img src="/assets/images/autoridade-marilia-mendonca.webp" alt="Gabriel Gadelha com Marília Mendonça" loading="lazy" decoding="async"><span class="authority-plus-overlay"></span><figcaption class="authority-plus-caption"><span class="authority-plus-kicker">Com</span><span class="authority-plus-name">Marília Mendonça</span></figcaption></div></figure><figure class="authority-plus-card authority-plus-card--standard reveal is-visible"><div class="authority-plus-media"><img src="/assets/images/autoridade-wesley-safadao.webp" alt="Gabriel Gadelha com Wesley Safadão" loading="lazy" decoding="async"><span class="authority-plus-overlay"></span><figcaption class="authority-plus-caption"><span class="authority-plus-kicker">Com</span><span class="authority-plus-name">Wesley Safadão</span></figcaption></div></figure><figure class="authority-plus-card authority-plus-card--standard reveal is-visible"><div class="authority-plus-media"><img src="/assets/images/autoridade-henrique-juliano.webp" alt="Gabriel Gadelha com Henrique & Juliano" loading="lazy" decoding="async"><span class="authority-plus-overlay"></span><figcaption class="authority-plus-caption"><span class="authority-plus-kicker">Com</span><span class="authority-plus-name">Henrique & Juliano</span></figcaption></div></figure><figure class="authority-plus-card authority-plus-card--standard reveal is-visible"><div class="authority-plus-media"><img src="/assets/images/autoridade-guilherme-benuto.webp" alt="Gabriel Gadelha com Guilherme & Benuto" loading="lazy" decoding="async"><span class="authority-plus-overlay"></span><figcaption class="authority-plus-caption"><span class="authority-plus-kicker">Com</span><span class="authority-plus-name">Guilherme & Benuto</span></figcaption></div></figure><figure class="authority-plus-card authority-plus-card--standard reveal is-visible"><div class="authority-plus-media"><img src="/assets/images/autoridade-cleyton-romario.webp" alt="Gabriel Gadelha com Cleyton & Romário" loading="lazy" decoding="async"><span class="authority-plus-overlay"></span><figcaption class="authority-plus-caption"><span class="authority-plus-kicker">Com</span><span class="authority-plus-name">Cleyton & Romário</span></figcaption></div></figure></div></div></section>
   <section class="section pacotes" id="pacotes"><div class="pacotes-bg" aria-hidden="true"></div><div class="container"><header class="section-head centered reveal">
-<h2 class="section-title"><span class="italic serif">Formatos de show para casamento:</span><br /><span class="display">Pocket, Banda Completa e Premium</span></h2><p class="section-lede">Cada casamento pede uma entrega diferente. Por isso, Gabriel Gadelha oferece formatos que acompanham o tamanho, a proposta e o nível de produção do evento. Todos com <strong>2 horas de apresentação</strong> e possibilidade de alinhamento do repertório com os noivos.</p></header><div class="pacotes-grid"><article class="pack reveal" data-pack="pocket"><div class="pack-top"><span class="pack-tag">Intimista</span><h3 class="pack-name">Pocket</h3><p class="pack-sub">Formato intimista para mini wedding, recepções menores e momentos mais reservados. Ideal para quem quer elegância, proximidade e música ao vivo de alto nível sem abrir mão da emoção.</p></div><ul class="pack-list"><li>Bateria / Cajon</li><li>Baixo</li><li>Sanfona</li></ul><div class="pack-meta"><span class="pack-duration">⏱ 2h de show</span></div><a class="btn btn-ghost pack-cta btn-whatsapp" href="https://wa.me/5519993941536?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20or%C3%A7amento%20para%20casamento%20no%20formato%20Pocket%20com%20Gabriel%20Gadelha.%20Data%3A%20___%20%2F%20Cidade%3A%20___" target="_blank" rel="noopener" data-pacote="pocket">Pedir orçamento Pocket →</a></article><article class="pack pack-featured reveal" data-pack="banda"><div class="pack-badge">Mais pedido</div><div class="pack-top"><span class="pack-tag">Completo</span><h3 class="pack-name">Banda Completa</h3><p class="pack-sub">A opção mais procurada para casamentos que querem equilibrar impacto, pista e presença de palco. Entrega forte, versátil e com excelente percepção de valor para quem busca uma festa marcante.</p></div><ul class="pack-list"><li>Bateria</li><li>Baixo</li><li>Sanfona</li><li>Violão</li><li>VS</li></ul><div class="pack-meta"><span class="pack-duration">⏱ 2h de show</span></div><a class="btn btn-primary pack-cta btn-whatsapp" href="https://wa.me/5519993941536?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20or%C3%A7amento%20para%20casamento%20no%20formato%20Banda%20Completa%20com%20Gabriel%20Gadelha.%20Data%3A%20___%20%2F%20Cidade%3A%20___" target="_blank" rel="noopener" data-pacote="banda-completa">Pedir orçamento Banda Completa →</a></article><article class="pack reveal" data-pack="premium"><div class="pack-top"><span class="pack-tag">Premium</span><h3 class="pack-name">Premium</h3><p class="pack-sub">Experiência completa para casamentos de maior porte e eventos com produção mais robusta. Ideal para quem quer uma apresentação mais impactante, com estrutura artística e técnica voltada para uma noite inesquecível.</p></div><ul class="pack-list"><li>Bateria</li><li>Baixo</li><li>Sanfona</li><li>Violão</li><li>VS</li><li>Técnico de Som</li><li>Técnico de Luz</li><li>Roadie</li></ul><div class="pack-meta"><span class="pack-duration">⏱ 2h de show</span></div><a class="btn btn-ghost pack-cta btn-whatsapp" href="https://wa.me/5519993941536?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20or%C3%A7amento%20para%20casamento%20no%20formato%20Premium%20com%20Gabriel%20Gadelha.%20Data%3A%20___%20%2F%20Cidade%3A%20___" target="_blank" rel="noopener" data-pacote="premium">Pedir orçamento Premium →</a></article></div><p class="pacotes-note">Os formatos podem variar conforme cidade, estrutura do evento, deslocamento e proposta da celebração. O orçamento é personalizado para a sua data.</p></div></section>
+<h2 class="section-title"><span class="italic serif">Formatos de show para casamento:</span><br /><span class="display">Pocket, Banda Completa e Premium</span></h2><p class="section-lede">Cada casamento pede uma entrega diferente. Por isso, Gabriel Gadelha oferece formatos que acompanham o tamanho, a proposta e o nível de produção do evento. Todos com <strong>2 horas de apresentação</strong> e possibilidade de alinhamento do repertório com os noivos.</p></header><div class="pacotes-grid"><article class="pack reveal" data-pack="pocket"><div class="pack-top"><span class="pack-tag">Intimista</span><h3 class="pack-name">Pocket</h3><p class="pack-sub">Formato intimista para mini wedding, recepções menores e momentos mais reservados. Ideal para quem quer elegância, proximidade e música ao vivo de alto nível sem abrir mão da emoção.</p></div><ul class="pack-list"><li>Bateria / Cajon</li><li>Baixo</li><li>Sanfona</li></ul><div class="pack-meta"><span class="pack-duration">⏱ 2h de show</span></div><a class="btn btn-ghost pack-cta btn-whatsapp" data-pacote="pocket" href="https://wa.me/5519993941536?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20or%C3%A7amento%20para%20casamento%20no%20formato%20Pocket%20com%20Gabriel%20Gadelha.%20Data%3A%20___%20%2F%20Cidade%3A%20___" target="_blank" rel="noopener">Pedir orçamento Pocket →</a></article><article class="pack pack-featured reveal" data-pack="banda"><div class="pack-badge">Mais pedido</div><div class="pack-top"><span class="pack-tag">Completo</span><h3 class="pack-name">Banda Completa</h3><p class="pack-sub">A opção mais procurada para casamentos que querem equilibrar impacto, pista e presença de palco. Entrega forte, versátil e com excelente percepção de valor para quem busca uma festa marcante.</p></div><ul class="pack-list"><li>Bateria</li><li>Baixo</li><li>Sanfona</li><li>Violão</li><li>VS</li></ul><div class="pack-meta"><span class="pack-duration">⏱ 2h de show</span></div><a class="btn btn-primary pack-cta btn-whatsapp" data-pacote="banda" href="https://wa.me/5519993941536?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20or%C3%A7amento%20para%20casamento%20no%20formato%20Banda%20Completa%20com%20Gabriel%20Gadelha.%20Data%3A%20___%20%2F%20Cidade%3A%20___" target="_blank" rel="noopener">Pedir orçamento Banda Completa →</a></article><article class="pack reveal" data-pack="premium"><div class="pack-top"><span class="pack-tag">Premium</span><h3 class="pack-name">Premium</h3><p class="pack-sub">Experiência completa para casamentos de maior porte e eventos com produção mais robusta. Ideal para quem quer uma apresentação mais impactante, com estrutura artística e técnica voltada para uma noite inesquecível.</p></div><ul class="pack-list"><li>Bateria</li><li>Baixo</li><li>Sanfona</li><li>Violão</li><li>VS</li><li>Técnico de Som</li><li>Técnico de Luz</li><li>Roadie</li></ul><div class="pack-meta"><span class="pack-duration">⏱ 2h de show</span></div><a class="btn btn-ghost pack-cta btn-whatsapp" data-pacote="premium" href="https://wa.me/5519993941536?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20or%C3%A7amento%20para%20casamento%20no%20formato%20Premium%20com%20Gabriel%20Gadelha.%20Data%3A%20___%20%2F%20Cidade%3A%20___" target="_blank" rel="noopener">Pedir orçamento Premium →</a></article></div><p class="pacotes-note">Os formatos podem variar conforme cidade, estrutura do evento, deslocamento e proposta da celebração. O orçamento é personalizado para a sua data.</p></div></section>
   <section class="section faq-section" id="faq"><div class="container"><header class="section-head centered reveal">
 <h2 class="section-title"><span class="italic serif">Respostas para quem está</span><br /><span class="display">pesquisando show para casamento</span></h2></header><div class="faq-grid"><article class="faq-card reveal"><h3>Quanto custa contratar cantor para casamento?</h3><p>O valor depende da data, cidade, estrutura do evento e formato escolhido. O orçamento é personalizado para que a proposta faça sentido para o perfil do casamento.</p></article><article class="faq-card reveal"><h3>Gabriel Gadelha faz show para casamento em Campinas?</h3><p>Sim. O atendimento contempla Campinas, interior de São Paulo e outras regiões, conforme disponibilidade e logística do evento.</p></article><article class="faq-card reveal"><h3>Existe show sertanejo para mini wedding?</h3><p>Sim. O formato Pocket atende muito bem mini weddings, recepções menores e eventos mais intimistas.</p></article><article class="faq-card reveal"><h3>O show para casamento pode ser personalizado?</h3><p>Sim. O repertório pode ser alinhado com o perfil dos noivos e com o clima desejado para a celebração.</p></article><article class="faq-card reveal"><h3>Qual a duração do show?</h3><p>Os formatos de show são planejados com 2 horas de apresentação.</p></article><article class="faq-card reveal"><h3>Como pedir orçamento para casamento?</h3><p>Basta chamar no WhatsApp e enviar data, cidade, local e número aproximado de convidados.</p></article></div></div></section>
   <section class="section cta-final" id="contato"><div class="container cta-grid"><div class="cta-content reveal">
-<h2 class="section-title"><span class="italic serif">Peça orçamento para</span><br /><span class="display">o seu casamento</span></h2><p class="cta-text">Envie sua data pelo WhatsApp e receba atendimento personalizado para entender disponibilidade, formato ideal e proposta para o seu evento.</p><div class="cta-info"><div class="cta-info-row"><span class="label">WhatsApp</span><a class="btn-whatsapp" href="https://wa.me/5519993941536?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20or%C3%A7amento%20para%20show%20de%20casamento%20com%20Gabriel%20Gadelha.%20Data%20do%20evento%3A%20___%20%2F%20Cidade%3A%20___%20%2F%20Local%3A%20___%20%2F%20Convidados%3A%20___" target="_blank" rel="noopener" data-pacote="cta-final">+55 19 99394-1536</a></div><div class="cta-info-row"><span class="label">Instagram</span></div><div class="cta-info-row"><span class="label">Atendimento</span><span>Campinas, interior de SP e outras regiões</span></div></div><a class="btn btn-primary btn-lg btn-whatsapp" href="https://wa.me/5519993941536?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20or%C3%A7amento%20para%20show%20de%20casamento%20com%20Gabriel%20Gadelha.%20Data%20do%20evento%3A%20___%20%2F%20Cidade%3A%20___%20%2F%20Local%3A%20___%20%2F%20Convidados%3A%20___" target="_blank" rel="noopener" data-pacote="cta-final">Chamar no WhatsApp</a></div></div></section>
+<h2 class="section-title"><span class="italic serif">Peça orçamento para</span><br /><span class="display">o seu casamento</span></h2><p class="cta-text">Envie sua data pelo WhatsApp e receba atendimento personalizado para entender disponibilidade, formato ideal e proposta para o seu evento.</p><div class="cta-info"><div class="cta-info-row"><span class="label">WhatsApp</span><a class="btn-whatsapp" data-pacote="cta-telefone" href="https://wa.me/5519993941536?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20or%C3%A7amento%20para%20show%20de%20casamento%20com%20Gabriel%20Gadelha.%20Data%20do%20evento%3A%20___%20%2F%20Cidade%3A%20___%20%2F%20Local%3A%20___%20%2F%20Convidados%3A%20___" target="_blank" rel="noopener">+55 19 99394-1536</a></div><div class="cta-info-row"><span class="label">Instagram</span></div><div class="cta-info-row"><span class="label">Atendimento</span><span>Campinas, interior de SP e outras regiões</span></div></div><a class="btn btn-primary btn-lg btn-whatsapp" data-pacote="cta-final" href="https://wa.me/5519993941536?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20or%C3%A7amento%20para%20show%20de%20casamento%20com%20Gabriel%20Gadelha.%20Data%20do%20evento%3A%20___%20%2F%20Cidade%3A%20___%20%2F%20Local%3A%20___%20%2F%20Convidados%3A%20___" target="_blank" rel="noopener">Chamar no WhatsApp</a></div></div></section>
   <footer class="site-footer"><div class="container footer-inner"><div class="footer-brand"><span class="brand-mark">GG</span><span class="serif italic">Gabriel Gadelha</span></div>
-<p class="footer-copy">© <span id="yearNow">2026</span> Gabriel Gadelha — Todos os direitos reservados. <a href="/privacidade.html">Política de Privacidade</a></p></div></footer>
-  <a class="whatsapp-float btn-whatsapp" href="https://wa.me/5519993941536?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20or%C3%A7amento%20para%20show%20de%20casamento%20com%20Gabriel%20Gadelha.%20Data%20do%20evento%3A%20___%20%2F%20Cidade%3A%20___%20%2F%20Local%3A%20___%20%2F%20Convidados%3A%20___" target="_blank" rel="noopener" aria-label="Falar no WhatsApp" data-pacote="flutuante"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a9.93 9.93 0 0 0-8.58 14.9L2 22l5.23-1.37A9.93 9.93 0 1 0 12.04 2m0 1.82a8.11 8.11 0 0 1 6.95 12.36l-.21.33.8 2.92-3-.78-.32.19a8.1 8.1 0 0 1-12.33-6.93a8.12 8.12 0 0 1 8.11-8.09m-4.4 4.37c-.2 0-.52.07-.8.38s-1.05 1.02-1.05 2.5s1.07 2.89 1.22 3.1c.15.2 2.07 3.31 5.12 4.51c2.54 1 3.05.8 3.6.75c.56-.05 1.78-.73 2.03-1.43c.25-.7.25-1.3.17-1.43c-.07-.12-.27-.2-.57-.35c-.3-.15-1.78-.88-2.05-.98c-.27-.1-.48-.15-.68.15c-.2.3-.78.98-.95 1.18c-.17.2-.35.22-.65.08c-.3-.15-1.26-.46-2.4-1.48c-.89-.79-1.49-1.77-1.66-2.07c-.17-.3-.02-.46.13-.61c.13-.13.3-.35.44-.52c.15-.18.2-.3.3-.5c.1-.2.05-.37-.03-.52c-.07-.15-.68-1.64-.94-2.24c-.22-.5-.45-.44-.62-.45z"/></svg><span class="wa-pulse"></span></a>
+<p class="footer-copy">© <span id="yearNow">2026</span> Gabriel Gadelha — Todos os direitos reservados. <a href="/privacidade.html" style="color:inherit;text-decoration:underline;">Política de Privacidade</a></p></div></footer>
+  <a class="whatsapp-float btn-whatsapp" data-pacote="flutuante" href="https://wa.me/5519993941536?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20or%C3%A7amento%20para%20show%20de%20casamento%20com%20Gabriel%20Gadelha.%20Data%20do%20evento%3A%20___%20%2F%20Cidade%3A%20___%20%2F%20Local%3A%20___%20%2F%20Convidados%3A%20___" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a9.93 9.93 0 0 0-8.58 14.9L2 22l5.23-1.37A9.93 9.93 0 1 0 12.04 2m0 1.82a8.11 8.11 0 0 1 6.95 12.36l-.21.33.8 2.92-3-.78-.32.19a8.1 8.1 0 0 1-12.33-6.93a8.12 8.12 0 0 1 8.11-8.09m-4.4 4.37c-.2 0-.52.07-.8.38s-1.05 1.02-1.05 2.5s1.07 2.89 1.22 3.1c.15.2 2.07 3.31 5.12 4.51c2.54 1 3.05.8 3.6.75c.56-.05 1.78-.73 2.03-1.43c.25-.7.25-1.3.17-1.43c-.07-.12-.27-.2-.57-.35c-.3-.15-1.78-.88-2.05-.98c-.27-.1-.48-.15-.68.15c-.2.3-.78.98-.95 1.18c-.17.2-.35.22-.65.08c-.3-.15-1.26-.46-2.4-1.48c-.89-.79-1.49-1.77-1.66-2.07c-.17-.3-.02-.46.13-.61c.13-.13.3-.35.44-.52c.15-.18.2-.3.3-.5c.1-.2.05-.37-.03-.52c-.07-.15-.68-1.64-.94-2.24c-.22-.5-.45-.44-.62-.45z"/></svg><span class="wa-pulse"></span></a>
 
   <script>
     (() => {
@@ -875,21 +900,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       });
 
       const heroVideoId = '3U183bGOk74';
-      const heroFrame = document.getElementById('heroShortFrame');
       const heroSoundBtn = document.getElementById('heroSoundBtn');
-      const heroVideoWrap = document.querySelector('.hero-video');
+      const heroVideoWrap = document.getElementById('heroVideoWrap') || document.querySelector('.hero-video');
+      const heroPlaceholderHtml = heroVideoWrap ? heroVideoWrap.innerHTML : '';
       let heroSoundOn = false;
 
-      const buildHeroSrc = (withSound = false) => {
+      const buildHeroSrc = (withSound = true) => {
         const mute = withSound ? 0 : 1;
         const controls = withSound ? 1 : 0;
         return `https://www.youtube-nocookie.com/embed/${heroVideoId}?autoplay=1&mute=${mute}&loop=1&playlist=${heroVideoId}&controls=${controls}&modestbranding=1&playsinline=1&rel=0&vq=hd1080`;
       };
 
       const setHeroState = (withSound) => {
-        if (!heroFrame) return;
+        if (!heroVideoWrap) return;
         heroSoundOn = withSound;
-        heroFrame.src = buildHeroSrc(withSound);
+
+        if (withSound) {
+          heroVideoWrap.classList.add('is-playing');
+          heroVideoWrap.innerHTML = `
+            <iframe
+              id="heroShortFrame"
+              src="${buildHeroSrc(true)}"
+              title="Gabriel Gadelha short"
+              loading="eager"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          `;
+        } else {
+          heroVideoWrap.classList.remove('is-playing');
+          heroVideoWrap.innerHTML = heroPlaceholderHtml;
+        }
+
         if (heroSoundBtn) {
           heroSoundBtn.classList.toggle('is-active', withSound);
           heroSoundBtn.textContent = withSound ? 'DESATIVAR ÁUDIO' : 'ASSISTIR COM ÁUDIO';
@@ -956,10 +999,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         `;
       });
 
-      // Guarantee hero starts in muted autoplay on first load
-      if (heroFrame) {
-        heroFrame.src = buildHeroSrc(false);
-      }
     })();
   </script>
 
