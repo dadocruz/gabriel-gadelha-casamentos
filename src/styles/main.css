@@ -478,3 +478,36 @@ ul { list-style: none; padding: 0; margin: 0; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
 }
+/* Ajuste seção Sobre — foto compacta e texto justificado */
+.sobre-img.sobre-img--single {
+  aspect-ratio: 4 / 5 !important;
+  max-width: 520px !important;
+}
+
+.sobre-img-main.sobre-img-main--single {
+  position: absolute !important;
+  inset: 0 !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  background: transparent !important;
+}
+
+.sobre-img-main.sobre-img-main--single img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 28% !important;
+  display: block !important;
+}
+
+.sobre-copy p {
+  text-align: justify !important;
+  text-justify: inter-word !important;
+}
+
+@media (max-width: 800px) {
+  .sobre-img.sobre-img--single {
+    max-width: 420px !important;
+    margin: 0 auto 32px !important;
+  }
+}
